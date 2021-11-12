@@ -155,7 +155,7 @@ COMMENT ON COLUMN "Basic_Info"."a_no" IS '첨부파일번호';
 CREATE TABLE "Resume" (
 	"r_no"	number		NOT NULL,
 	"r_enroll_date"	date	DEFAULT SYSDATE	NULL,
-	"r_status_YN"	varchar2(1 char)	DEFAULT N	NULL,
+	"r_status_YN"	varchar2(1 char)	DEFAULT 'N'	NULL,
 	"m_no"	number		NOT NULL
 );
 
