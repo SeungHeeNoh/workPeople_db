@@ -1,6 +1,5 @@
 ---- DROP TABLE
-﻿DROP TABLE "member";
-DROP TABLE "Resume";
+DROP TABLE "sns_info";
 DROP TABLE "Language";
 DROP TABLE "Basic_Info";
 DROP TABLE "Career";
@@ -9,29 +8,26 @@ DROP TABLE "License";
 DROP TABLE "Awards";
 DROP TABLE "Self_Introduction";
 DROP TABLE "Resume_Browse";
-DROP TABLE "attachment";
 DROP TABLE "scrap_company";
 DROP TABLE "payment";
 DROP TABLE "promotion_order";
 DROP TABLE "promotion_code";
-DROP TABLE "sns_info";
 DROP TABLE "company_info";
 DROP TABLE "company_type";
 DROP TABLE "sector";
-DROP TABLE "member_type";
 DROP TABLE "info_manager";
 DROP TABLE "Education";
 DROP TABLE "Interested_Company";
 DROP TABLE "Email";
-DROP TABLE "job_vacancy";
 DROP TABLE "Browse";
 DROP TABLE "recruitment_industry";
 DROP TABLE "experience_level";
+DROP TABLE "job_vacancy";
 DROP TABLE "job_vacancy_experience_level";
 DROP TABLE "job_type";
 DROP TABLE "job_vacancy_job_type";
-DROP TABLE "role";
 DROP TABLE "job_vacancy_role";
+DROP TABLE "role";
 DROP TABLE "gender";
 DROP TABLE "education_level";
 DROP TABLE "Scrap";
@@ -42,9 +38,13 @@ DROP TABLE "day";
 DROP TABLE "report_vacancy";
 DROP TABLE "job_vacancy_img";
 DROP TABLE "chat_log";
-DROP TABLE "authority";
 DROP TABLE "MEMBER_ROLE";
 DROP TABLE "MANAGER_ROLE";
+DROP TABLE "member";
+DROP TABLE "member_type";
+DROP TABLE "Resume";
+DROP TABLE "attachment";
+DROP TABLE "authority";
 
 -- DROP SEQUENCE
 
