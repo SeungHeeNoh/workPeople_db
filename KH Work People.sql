@@ -1351,14 +1351,14 @@ REFERENCES "member" (
 	"m_no"
 );
 
-ALTER TABLE "company_info" ADD CONSTRAINT "FK_attachment_TO_company_info_1" FOREIGN KEY (
+ALTER TABLE "company_info" ADD CONSTRAINT "FK_attachment_TO_company_info" FOREIGN KEY (
 	"a_no"
 )
 REFERENCES "attachment" (
 	"a_no"
 );
 
-ALTER TABLE "company_info" ADD CONSTRAINT "FK_company_type_TO_company_info_1" FOREIGN KEY (
+ALTER TABLE "company_info" ADD CONSTRAINT "FK_companyType_TO_companyInfo" FOREIGN KEY (
 	"ct_no"
 )
 REFERENCES "company_type" (
@@ -1386,14 +1386,14 @@ REFERENCES "Resume" (
 	"r_no"
 );
 
-ALTER TABLE "Interested_Company" ADD CONSTRAINT "FK_member_TO_Interested_Company_1" FOREIGN KEY (
+ALTER TABLE "Interested_Company" ADD CONSTRAINT "FK_member_TO_InterestedCompany" FOREIGN KEY (
 	"m_no"
 )
 REFERENCES "member" (
 	"m_no"
 );
 
-ALTER TABLE "Interested_Company" ADD CONSTRAINT "FK_company_info_TO_Interested_Company_1" FOREIGN KEY (
+ALTER TABLE "Interested_Company" ADD CONSTRAINT "FK_cInfo_To_InterestedCompany" FOREIGN KEY (
 	"ci_no"
 )
 REFERENCES "company_info" (
