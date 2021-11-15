@@ -1349,21 +1349,21 @@ REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE payment ADD CONSTRAINT FK_promotion_order_TO_payment_1 FOREIGN KEY (
+ALTER TABLE payment ADD CONSTRAINT FK_promo_order_TO_payment FOREIGN KEY (
 	p_no
-)
+
 REFERENCES promotion_order (
 	p_no
 );
 
-ALTER TABLE promotion_order ADD CONSTRAINT FK_promotion_code_TO_promotion_order_1 FOREIGN KEY (
+ALTER TABLE promotion_order ADD CONSTRAINT FK_promo_code_TO_promo_order FOREIGN KEY (
 	p_code
 )
 REFERENCES promotion_code (
 	p_code
 );
 
-ALTER TABLE promotion_order ADD CONSTRAINT FK_job_vacancy_TO_promotion_order_1 FOREIGN KEY (
+ALTER TABLE promotion_order ADD CONSTRAINT FK_jobvacancy_TO_promo_order FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
