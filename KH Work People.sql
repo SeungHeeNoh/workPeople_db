@@ -1351,7 +1351,7 @@ REFERENCES Resume (
 
 ALTER TABLE payment ADD CONSTRAINT FK_promo_order_TO_payment FOREIGN KEY (
 	p_no
-
+)
 REFERENCES promotion_order (
 	p_no
 );
