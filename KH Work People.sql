@@ -539,6 +539,10 @@ CREATE TABLE company_info (
 	s_no	number		NOT NULL
 );
 
+ALTER TABLE company_info ADD ci_ceoname	varchar2(4 char) NOT NULL;
+
+COMMENT ON COLUMN company_info.ci_ceoname IS '대표자명';
+
 COMMENT ON COLUMN company_info.ci_no IS '기업 정보 번호';
 
 COMMENT ON COLUMN company_info.ci_company_register_number IS '사업자 등록번호';
