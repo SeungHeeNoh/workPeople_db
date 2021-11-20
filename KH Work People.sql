@@ -33,6 +33,7 @@ DROP TABLE education_level;
 DROP TABLE Scrap;
 DROP TABLE Apply_Company;
 DROP TABLE ApplyInterview;
+DROP TABLE Apply_Interview;
 DROP TABLE pay_type;
 DROP TABLE day;
 DROP TABLE report_vacancy;
@@ -968,7 +969,7 @@ COMMENT ON COLUMN Apply_Company.ac_date IS '지원일';
 
 
 
-CREATE TABLE ApplyInterview (
+CREATE TABLE Apply_Interview (
 	jv_no	number		NOT NULL,
 	r_no	number		NOT NULL,
 	ai_certification	varchar2(10 char)		NOT NULL,
@@ -976,15 +977,15 @@ CREATE TABLE ApplyInterview (
 	ai_time	date		NOT NULL
 );
 
-COMMENT ON COLUMN ApplyInterview.jv_no IS '공고 번호';
+COMMENT ON COLUMN Apply_Interview.jv_no IS '공고 번호';
 
-COMMENT ON COLUMN ApplyInterview.r_no IS '이력서번호';
+COMMENT ON COLUMN Apply_Interview.r_no IS '이력서번호';
 
-COMMENT ON COLUMN ApplyInterview.ai_certification IS '인증번호';
+COMMENT ON COLUMN Apply_Interview.ai_certification IS '인증번호';
 
-COMMENT ON COLUMN ApplyInterview.ai_date IS '면접 날짜';
+COMMENT ON COLUMN Apply_Interview.ai_date IS '면접 날짜';
 
-COMMENT ON COLUMN ApplyInterview.ai_time IS '면접 시간';
+COMMENT ON COLUMN Apply_Interview.ai_time IS '면접 시간';
 
 
 
@@ -1244,7 +1245,7 @@ ALTER TABLE Apply_Company ADD CONSTRAINT PK_APPLY_COMPANY PRIMARY KEY (
 	r_no
 );
 
-ALTER TABLE ApplyInterview ADD CONSTRAINT PK_APPLYINTERVIEW PRIMARY KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT PK_APPLY_INTERVIEW PRIMARY KEY (
 	jv_no,
 	r_no
 );
@@ -1621,14 +1622,14 @@ REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE ApplyInterview ADD CONSTRAINT FK_Apply_Company_TO_ApplyInterview_1 FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT FK_Apply_Company_TO_Apply_Interview_1 FOREIGN KEY (
 	jv_no
 )
 REFERENCES Apply_Company (
 	jv_no
 );
 
-ALTER TABLE ApplyInterview ADD CONSTRAINT FK_Apply_Company_TO_ApplyInterview_2 FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT FK_Apply_Company_TO_Apply_Interview_2 FOREIGN KEY (
 	r_no
 )
 REFERENCES Apply_Company (
@@ -1864,3 +1865,172 @@ VALUES
   , '랭크업'
   , 500
 );
+
+
+
+
+-- 담당자 : 조용호
+-- CRUD 발생 테이블 가데이터 생성
+-- 테이블 참조 이슈 : 회원,기업,공고 테이블 가데이터 생성 구문은 이하의 구문들 위쪽에 생성해주세요.
+
+-- 4번회원(개인회원) 관심기업 11개 추가
+-- 4번회원(개인회원) 공고 11개 스크랩
+-- 4번회원(개인회원) 최근 본 채용공고 11개 추가
+BEGIN
+    FOR I IN 1..11
+    LOOP
+        INSERT INTO INTERESTED_COMPANY VALUES(4,I);
+        INSERT INTO SCRAP VALUES(4,I);
+        INSERT INTO BROWSE VALUES(4,I);
+    END LOOP;
+END;
+/
+-- 이력서 
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',1);
+
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',2);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',2);
+
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',3);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',3);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',3);
+
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',4);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',4);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',4);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',4);
+
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',5);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',5);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',5);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',5);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'N',5);
+
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',6);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',7);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',8);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',9);
+INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y',10);
+
+-- 입사지원 (1번 공고에 6명 지원)
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,1,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,2,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,4,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,7,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,12,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (1,16,'apply',SYSDATE);
+
+--입사지원 ( 4번 회원이 여러 공고에 지원, 지원상태 상이)
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (2,7,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (3,7,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (4,7,'apply',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (5,7,'pass',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (6,7,'pass',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (7,7,'interview',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (8,7,'interview',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (9,7,'interview',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (10,7,'passAll',SYSDATE);
+INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (11,7,'failure',SYSDATE);
+
+-- 이력서 열람(입사지원 이력서 열람)
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (5,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (6,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (7,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (8,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (9,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (10,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (11,7,'application',SYSDATE);
+
+-- 이력서 열람(추천 이력서 열람)
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,1,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,2,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,4,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,7,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,12,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,16,'recommened',SYSDATE);
+
+-- 면접
+INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(7,7,'PASS01',SYSDATE,SYSDATE);
+INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(8,7,'PASS01',SYSDATE,SYSDATE);
+INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(9,7,'PASS01',SYSDATE,SYSDATE);
+
+-- 채팅로그 파일경로, 고객센터(개인고객)
+BEGIN
+    FOR I IN 1..5
+    LOOP
+INSERT INTO ATTACHMENT VALUES 
+(SEQ_ATTACHMENT_NO.NEXTVAL, 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV', 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV',
+'/chatLog/','N',SYSDATE,SYSDATE);
+INSERT INTO CHAT_LOG (M_NO,A_NO) VALUES (1,SEQ_ATTACHMENT_NO.CURRVAL);
+ END LOOP;
+END;
+/
+
+-- 채팅로그 파일경로, 고객센터(기업고객)
+BEGIN
+    FOR I IN 11..15
+    LOOP
+INSERT INTO ATTACHMENT VALUES 
+(SEQ_ATTACHMENT_NO.NEXTVAL, 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV', 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV',
+'/chatLog/','N',SYSDATE,SYSDATE);
+INSERT INTO CHAT_LOG (M_NO,A_NO) VALUES (1,SEQ_ATTACHMENT_NO.CURRVAL);
+ END LOOP;
+END;
+/
+
+
+-- 이력서 - 기본정보, 파일첨부
+INSERT INTO ATTACHMENT
+VALUES (SEQ_ATTACHMENT_NO.NEXTVAL, 'img before '|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.img', 'pikachu.png',
+'/images/personal/resume/','N',SYSDATE,SYSDATE);
+
+-- 이력서 관련 가데이터
+BEGIN
+    FOR I IN 1..20
+    LOOP
+        INSERT INTO BASIC_INFO VALUES
+        (I,'이력서 제목'||I,'이름'||I,'남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,SEQ_ATTACHMENT_NO.CURRVAL);
+        
+        INSERT INTO EDUCATION VALUES
+        (I,'upperHigh','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
+        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO CAREER VALUES
+        (SEQ_CAREER_NO.NEXTVAL,I,'Y','회사이름'||I,SYSDATE,SYSDATE,'사원','부서이름'||I,
+        '담당 업무'||I,'개인 사유');
+        
+        INSERT INTO ACTIVITY VALUES
+        (SEQ_ACTIVITY_NO.NEXTVAL,I,'대외활동'||I,'기관,장소'||I,SYSDATE,SYSDATE,
+        I ||'. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO LICENSE VALUES
+        (SEQ_LICENSE_NO.NEXTVAL,I,'자격증명'||I,'발행처,기관'||I,'Y',SYSDATE);
+        
+        INSERT INTO LANGUAGE VALUES
+        (SEQ_LANGUAGE_NO.NEXTVAL,I,'언어 종류'||I,'시험 종류'||I,'점수'||I,'급수'||I,SYSDATE);
+        
+        INSERT INTO AWARDS VALUES
+        (SEQ_AWARDS_NO.NEXTVAL,I,'수상명'||I,'수여기관'||I,SYSDATE);
+        
+        INSERT INTO SELF_INTRODUCTION VALUES
+        (SEQ_SELF_INTR_NO.NEXTVAL,I,'자기소개서 항목 제목'||I,
+        '불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+        
+    END LOOP;
+END;
+/
+
+COMMIT;
+
+COMMIT;
