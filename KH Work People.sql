@@ -1933,26 +1933,26 @@ INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (10,7,'passAll'
 INSERT INTO APPLY_COMPANY (JV_NO, R_NO, AC_TYPE, AC_DATE) VALUES (11,7,'failure',SYSDATE);
 
 -- 이력서 열람(입사지원 이력서 열람)
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (5,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (6,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (7,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (8,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (9,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (10,7,'application',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (11,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (5,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (6,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (7,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (8,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (9,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (10,7,'application',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (11,7,'application',SYSDATE);
 
 -- 이력서 열람(추천 이력서 열람)
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,1,'recommened',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,2,'recommened',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,4,'recommened',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,7,'recommened',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,12,'recommened',SYSDATE);
-INSERT INTO RESUME_BROWSE (CI_NO,R_NO,RB_BROWSE,RB_DATE) VALUES (1,16,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,1,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,2,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,4,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,7,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,12,'recommened',SYSDATE);
+INSERT INTO RESUME_BROWSE VALUES (1,16,'recommened',SYSDATE);
 
 -- 면접
-INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(7,7,'PASS01',SYSDATE,SYSDATE);
-INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(8,7,'PASS01',SYSDATE,SYSDATE);
-INSERT INTO APPLY_INTERVIEW (JV_NO,R_NO,AI_CERTIFICATION,AI_DATE,AI_TIME) VALUES(9,7,'PASS01',SYSDATE,SYSDATE);
+INSERT INTO APPLY_INTERVIEW VALUES(7,7,'PASS01',SYSDATE,SYSDATE);
+INSERT INTO APPLY_INTERVIEW VALUES(8,7,'PASS01',SYSDATE,SYSDATE);
+INSERT INTO APPLY_INTERVIEW VALUES(9,7,'PASS01',SYSDATE,SYSDATE);
 
 -- 채팅로그 파일경로, 고객센터(개인고객)
 BEGIN
@@ -1961,7 +1961,7 @@ BEGIN
 INSERT INTO ATTACHMENT VALUES 
 (SEQ_ATTACHMENT_NO.NEXTVAL, 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV', 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV',
 '/chatLog/','N',SYSDATE,SYSDATE);
-INSERT INTO CHAT_LOG (M_NO,A_NO) VALUES (1,SEQ_ATTACHMENT_NO.CURRVAL);
+INSERT INTO CHAT_LOG VALUES (I,SEQ_ATTACHMENT_NO.CURRVAL);
  END LOOP;
 END;
 /
@@ -1973,7 +1973,7 @@ BEGIN
 INSERT INTO ATTACHMENT VALUES 
 (SEQ_ATTACHMENT_NO.NEXTVAL, 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV', 'chat log'||I|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.CSV',
 '/chatLog/','N',SYSDATE,SYSDATE);
-INSERT INTO CHAT_LOG (M_NO,A_NO) VALUES (1,SEQ_ATTACHMENT_NO.CURRVAL);
+INSERT INTO CHAT_LOG VALUES (I,SEQ_ATTACHMENT_NO.CURRVAL);
  END LOOP;
 END;
 /
@@ -1994,9 +1994,9 @@ BEGIN
         
         INSERT INTO EDUCATION VALUES
         (I,'upperHigh','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
-        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
-        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
-        '학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        '대학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
         
         INSERT INTO CAREER VALUES
         (SEQ_CAREER_NO.NEXTVAL,I,'Y','회사이름'||I,SYSDATE,SYSDATE,'사원','부서이름'||I,
@@ -2014,14 +2014,14 @@ BEGIN
         (SEQ_LICENSE_NO.NEXTVAL,I,'자격증명'||I,'발행처,기관'||I,'Y',SYSDATE);
         
         INSERT INTO LANGUAGE VALUES
-        (SEQ_LANGUAGE_NO.NEXTVAL,I,'언어 종류'||I,'시험 종류'||I,'점수'||I,'급수'||I,SYSDATE);
+        (SEQ_LANGUAGE_NO.NEXTVAL,I,'언어 종류'||I,'시험 종류'||I,86,'급수'||I,SYSDATE);
         
         INSERT INTO AWARDS VALUES
         (SEQ_AWARDS_NO.NEXTVAL,I,'수상명'||I,'수여기관'||I,SYSDATE);
         
         INSERT INTO SELF_INTRODUCTION VALUES
         (SEQ_SELF_INTR_NO.NEXTVAL,I,'자기소개서 항목 제목'||I,
-        '불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+        I||'. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
 
 우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
 
@@ -2030,7 +2030,5 @@ BEGIN
     END LOOP;
 END;
 /
-
-COMMIT;
 
 COMMIT;
