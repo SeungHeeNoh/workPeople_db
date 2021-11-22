@@ -546,20 +546,19 @@ COMMENT ON COLUMN sns_info.si_connect_date IS 'sns 연결 일자';
 CREATE TABLE company_info (
 	ci_no	number		NOT NULL,
 	ci_company_register_number	varchar2(12 char)		NOT NULL,
+    ci_ceoname	varchar2(4 char) NULL,
 	ci_founding_date	date	DEFAULT SYSDATE	NULL,
 	ci_employee_number	number	DEFAULT 0	NULL,
-	ci_business_detail	varchar2(50 char)		NOT NULL,
+	ci_business_detail	varchar2(50 char)		NULL,
 	ci_company_history	varchar2(2000)		NULL,
 	ci_company_vision	varchar2(2000)		NULL,
 	ci_hompage	varchar2(100 char)		NULL,
-	a_no	NUMBER		NOT NULL,
+	a_no	NUMBER		NULL,
 	ci_status_yn	varchar2(1 char)	DEFAULT 'N'	NOT NULL,
 	ct_no	number		NOT NULL,
 	m_no	number		NOT NULL,
 	s_no	number		NOT NULL
 );
-
-ALTER TABLE company_info ADD ci_ceoname	varchar2(4 char) NOT NULL;
 
 COMMENT ON COLUMN company_info.ci_ceoname IS '대표자명';
 
