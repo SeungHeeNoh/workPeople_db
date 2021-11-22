@@ -1643,18 +1643,14 @@ REFERENCES Resume (
 );
 
 ALTER TABLE Apply_Interview ADD CONSTRAINT ac_ai_1 FOREIGN KEY (
-	jv_no
+	jv_no,
+    r_no
 )
 REFERENCES Apply_Company (
-	jv_no
+	jv_no,
+    r_no
 );
 
-ALTER TABLE Apply_Interview ADD CONSTRAINT ac_ai_2 FOREIGN KEY (
-	r_no
-)
-REFERENCES Apply_Company (
-	r_no
-);
 
 ALTER TABLE report_vacancy ADD CONSTRAINT FK_member_TO_report_vacancy_1 FOREIGN KEY (
 	m_no
