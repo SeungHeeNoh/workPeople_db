@@ -1376,14 +1376,14 @@ REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE Self_Introduction ADD CONSTRAINT FK_Resume_TO_Self_Introduction_1 FOREIGN KEY (
+ALTER TABLE Self_Introduction ADD CONSTRAINT Resume_SI FOREIGN KEY (
 	r_no
 )
 REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE Resume_Browse ADD CONSTRAINT FK_company_info_TO_Resume_Browse_1 FOREIGN KEY (
+ALTER TABLE Resume_Browse ADD CONSTRAINT Company_info_Resume_Browse FOREIGN KEY (
 	ci_no
 )
 REFERENCES company_info (
@@ -1642,14 +1642,14 @@ REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE Apply_Interview ADD CONSTRAINT FK_AC_TO_ApplyInterview FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT ac_ai_1 FOREIGN KEY (
 	jv_no
 )
 REFERENCES Apply_Company (
 	jv_no
 );
 
-ALTER TABLE Apply_Interview ADD CONSTRAINT FK_AC_TO_Apply_Interview2 FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT ac_ai_2 FOREIGN KEY (
 	r_no
 )
 REFERENCES Apply_Company (
