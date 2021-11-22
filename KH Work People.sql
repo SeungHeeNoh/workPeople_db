@@ -94,6 +94,7 @@ DROP SEQUENCE SEQ_INFO_MANAGER_NO;
 -- 관리자 번호
 DROP SEQUENCE SEQ_REPORT_VACANCY_NO;
 -- 신고 공고 번호
+
 ---------------
 
 -- CREATE SEQUENCE
@@ -1515,14 +1516,14 @@ REFERENCES gender (
 	g_no
 );
 
-ALTER TABLE job_vacancy ADD CONSTRAINT FK_education_level_TO_job_vacancy_1 FOREIGN KEY (
+ALTER TABLE job_vacancy ADD CONSTRAINT FK_education_level_TO_jv FOREIGN KEY (
 	el_no
 )
 REFERENCES education_level (
 	el_no
 );
 
-ALTER TABLE job_vacancy ADD CONSTRAINT FK_company_info_TO_job_vacancy_1 FOREIGN KEY (
+ALTER TABLE job_vacancy ADD CONSTRAINT FK_company_info_TO_jv FOREIGN KEY (
 	ci_no
 )
 REFERENCES company_info (
@@ -1557,42 +1558,42 @@ REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE recruitment_industry ADD CONSTRAINT FK_sector_TO_recruitment_industry_1 FOREIGN KEY (
+ALTER TABLE recruitment_industry ADD CONSTRAINT FK_sector_TO_recruitment FOREIGN KEY (
 	s_no
 )
 REFERENCES sector (
 	s_no
 );
 
-ALTER TABLE recruitment_industry ADD CONSTRAINT FK_job_vacancy_TO_recruitment_industry_1 FOREIGN KEY (
+ALTER TABLE recruitment_industry ADD CONSTRAINT FK_job_vacancy_TO_recruitment FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE job_vacancy_experience_level ADD CONSTRAINT FK_experience_level_TO_job_vacancy_experience_level_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_experience_level ADD CONSTRAINT FK_experience_level_TO_jv_el FOREIGN KEY (
 	el_no
 )
 REFERENCES experience_level (
 	el_no
 );
 
-ALTER TABLE job_vacancy_experience_level ADD CONSTRAINT FK_job_vacancy_TO_job_vacancy_experience_level_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_experience_level ADD CONSTRAINT FK_job_vacancy_TO_jv_el FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE job_vacancy_job_type ADD CONSTRAINT FK_job_type_TO_job_vacancy_job_type_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_job_type ADD CONSTRAINT FK_job_type_TO_jv_job_type FOREIGN KEY (
 	jt_no
 )
 REFERENCES job_type (
 	jt_no
 );
 
-ALTER TABLE job_vacancy_job_type ADD CONSTRAINT FK_job_vacancy_TO_job_vacancy_job_type_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_job_type ADD CONSTRAINT FK_job_vacancy_TO_jv_job_type FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
@@ -1606,7 +1607,7 @@ REFERENCES role (
 	r_no
 );
 
-ALTER TABLE job_vacancy_role ADD CONSTRAINT FK_job_vacancy_TO_job_vacancy_role_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_role ADD CONSTRAINT FK_job_vacancy_TO_jv_role FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
@@ -1627,7 +1628,7 @@ REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE Apply_Company ADD CONSTRAINT FK_job_vacancy_TO_Apply_Company_1 FOREIGN KEY (
+ALTER TABLE Apply_Company ADD CONSTRAINT FK_job_vacancy_TO_ApplyCompany FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
@@ -1641,14 +1642,14 @@ REFERENCES Resume (
 	r_no
 );
 
-ALTER TABLE Apply_Interview ADD CONSTRAINT FK_Apply_Company_TO_Apply_Interview_1 FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT FK_AC_TO_ApplyInterview FOREIGN KEY (
 	jv_no
 )
 REFERENCES Apply_Company (
 	jv_no
 );
 
-ALTER TABLE Apply_Interview ADD CONSTRAINT FK_Apply_Company_TO_Apply_Interview_2 FOREIGN KEY (
+ALTER TABLE Apply_Interview ADD CONSTRAINT FK_AC_TO_Apply_Interview2 FOREIGN KEY (
 	r_no
 )
 REFERENCES Apply_Company (
@@ -1662,21 +1663,21 @@ REFERENCES member (
 	m_no
 );
 
-ALTER TABLE report_vacancy ADD CONSTRAINT FK_job_vacancy_TO_report_vacancy_1 FOREIGN KEY (
+ALTER TABLE report_vacancy ADD CONSTRAINT FK_jv_TO_report_vacancy FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE job_vacancy_img ADD CONSTRAINT FK_job_vacancy_TO_job_vacancy_img_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_img ADD CONSTRAINT FK_jv_TO_job_vacancy_img FOREIGN KEY (
 	jv_no
 )
 REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE job_vacancy_img ADD CONSTRAINT FK_attachment_TO_job_vacancy_img_1 FOREIGN KEY (
+ALTER TABLE job_vacancy_img ADD CONSTRAINT FK_attachment_TO_jv_img FOREIGN KEY (
 	a_no
 )
 REFERENCES attachment (
@@ -1711,7 +1712,7 @@ REFERENCES authority (
 	a_code
 );
 
-ALTER TABLE MANAGER_ROLE ADD CONSTRAINT FK_info_manager_TO_MANAGER_ROLE_1 FOREIGN KEY (
+ALTER TABLE MANAGER_ROLE ADD CONSTRAINT FK_info_manager_TO_MANAGERROLE FOREIGN KEY (
 	im_no
 )
 REFERENCES info_manager (
