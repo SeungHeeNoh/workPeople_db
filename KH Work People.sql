@@ -2158,4 +2158,22 @@ BEGIN
 END;
 /
 
+
+-- 담당자 : 서정화
+-- 기업회원 정보 수정
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '임상헌'	
+		     , CI_FOUNDING_DATE = to_date('99/01/01','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 10	
+		     , CI_BUSINESS_DETAIL = '최상의 의료진, 최상의 의료서비스, 고품격 시설로 최상의 진료를 실천하는 병원입니다.'	
+		     , CI_COMPANY_HISTORY = '2004년   05월   치과병원 특수법인화
+                                    2002년   06월   치과병원 외래로비 환경 개선
+                                    2000 년  05월   치과병원 임상교육연구동 준공'	
+		     , CI_COMPANY_VISION = 'ㆍDentist : 의료의 높은 수준을 위한 환경과 성장을 제공
+                                    ㆍStaff : e-plant에 근무를 하는 것에 대한 자부심과 성장에 대한 기회를 제공
+                                    ㆍCustomer : 건강한 치아가 주는 행복을 선사하며, 더불어 사는 사회에 대한 책임을 약속'	
+	     WHERE CI_NO = 1;	
+
+
+
 COMMIT;
