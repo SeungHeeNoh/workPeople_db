@@ -591,7 +591,7 @@ COMMENT ON COLUMN sns_info.si_connect_date IS 'sns 연결 일자';
 CREATE TABLE company_info (
 	ci_no	number		NOT NULL,
 	ci_company_register_number	varchar2(12 char)		NOT NULL,
-    ci_ceoname	varchar2(4 char) NULL,
+    ci_ceoname	varchar2(10 char) NULL,
 	ci_founding_date	date	NULL,
 	ci_employee_number	number	DEFAULT 0	NULL,
 	ci_business_detail	varchar2(50 char)		NULL,
@@ -2338,7 +2338,7 @@ END;
 
 
 -- 담당자 : 서정화
--- 기업회원 정보 수정
+-- 기업회원 정보 수정(10개)
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '임상헌'	
 		     , CI_FOUNDING_DATE = to_date('99/01/01','RR/MM/DD')	
@@ -2351,8 +2351,251 @@ UPDATE COMPANY_INFO
 ㆍStaff : e-plant에 근무를 하는 것에 대한 자부심과 성장에 대한 기회를 제공
 ㆍCustomer : 건강한 치아가 주는 행복을 선사하며, 더불어 사는 사회에 대한 책임을 약속'
 	     WHERE CI_NO = 1;	
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '서진규'	
+		     , CI_FOUNDING_DATE = to_date('17/11/29','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 3	
+		     , CI_BUSINESS_DETAIL = '금속나노분말 제조'	
+             , S_NO = 3
+	     WHERE CI_NO = 2;
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '하상건'	
+		     , CI_FOUNDING_DATE = to_date('00/09/27','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 44
+		     , CI_BUSINESS_DETAIL = '화공약품,표면처리제도소매,오파,제조'	
+             , CI_COMPANY_HISTORY = '2007 06 사업장 이전 : 안산시 초지동
+2005 05 기업부설연구소 설립
+2005 01 사업장 이전 : 안산시 반월공단 -> 경기도 안산시 고잔동
+2002 08 사업장 이전 : 서울 영등포소재 -> 경기 안산 반월공단 607블럭 25호
+2000 09 법인 전환 : 대원이노베이션(주)
+1996 09 대원통상 개업'	
+		     , CI_COMPANY_VISION = '당사는 미국/일본/대만/독일/룩셈부르크/영국 등에서 PCB 제조 및 표면 처리
+약품을 수입하여 국내 삼성전기,엘지이노텍,대덕전자 & GDS,심텍,이수페타시스&엑사보드,영풍전자,인터프렉스,코리아써키트 등에 공급하고 있습니다.
+큰기업은 아니지만 탄탄하게 성장하고 있는 기업입니다. 대원이노베이션과 같이 성장 하실 직원분들을 모집합니다. 많은 관심 부탁드립니다.'
+             , CI_HOMEPAGE = 'http://www.idaewon.com'
+             , S_NO = 4
+	     WHERE CI_NO = 3;  
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '박재오'	
+		     , CI_FOUNDING_DATE = to_date('11/12/26','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 23
+		     , CI_BUSINESS_DETAIL = '소프트웨어개발,공급'	
+             , CI_COMPANY_HISTORY = '통합 프로모션의 새로운 표준, 주식회사 웨비나스
+2009년 시작된 주식회사 웨비나스는 그 이름처럼 지난 10여 년 동안 한국 웨비나 기술의 발전을 이끌었습니다.
+이제 우리는 최고의 웨비나 기술에 섬세한 오프라인 이벤트 노하우를 결합해 고객에게 하나의 통합 프로모션 서비스를 제공하고 있습니다.
 
+[연혁]
+2021년 누적 고객사 100곳, 브랜드 300개 돌파
+브랜드 아이덴티티 리뉴얼
+2020년 연간 프로젝트 1,000회, 누적 프로젝트 5,000회 돌파
+30개 이상 학회의 온라인 학술대회 및 연수 강좌, 보수 교육 진행
+플랫폼 WX 3 출시: 통합 프로모션 이벤트 지원 시작
+스튜디오 W 오픈
+웨비나스 솔루션 임대 서비스 시작
+고객사 대상 서비스 만족도 조사(CS Survey) 도입
+2019년 플랫폼 WX 2 출시
+필드 관리 시스템(EMS, Field Management System) 도입
+오프라인 에이전시 서비스 시작
+2018년 웨비나 플랫폼 임대 서비스 출시
+웨비나 웹사이트 개편
+현장 관리 시스템(FMS, Field Management System) 도입
+2017년 연간 프로젝트 500회 및 누적 프로젝트 2,000회 돌파
+웨비나 서비스에 가상 스튜디오 형식(Virtual Studio Webinar) 도입
+2016년 웨비나 최신 트렌드 관련 뉴스레터 서비스 시작
+2015년 연간 프로젝트 300회 누적 프로젝트 1,000회 돌파
+웨비나 서비스에 HD 해상도 도입
+2014년 홍콩 웨비나 법인 마쿱헬스케어 인수합병
+웨비나 프로젝트 관리를 위한 세일즈포스, 태블로 도입
+2013년 웨비나 사이트 개발 및 유지 운영
+2012년 플랫폼 WX 1 출시
+주식회사 웨비나스로 사명 전환
+2011년 대규모 다자간 라이브 서비스 다수 진행
+2010년 웨비나 서비스에 다자간 라이브 시스템 도입
+2009년 엔터페이스(Enterface) 설립'	
+		     , CI_COMPANY_VISION = '우리는 변화와 연결, 협업을 통해 일합니다.
+1. 긍정적인 변화
+우리의 일이 세상을 긍정적으로 변화시킨다고 믿습니다. 우리는 새로운 기술과 문화를 깊이 이해하고, 그것이 공동체에 도움이 되도록 노력합니다.
+2. 시공간을 넘어선 연결
+네트워크 기술은 사람들이 자유롭게 소통하도록 도울 때 가치 있습니다. 우리는 당신이 어디에 있든 더 큰 세상에 연결되는 기술을 실현합니다.
+3. 창의적인 협업
+협업은 우리의 기본 자질이자, 우리가 제공하는 서비스입니다. 우리는 다양한 분야의 전문가가 모인 집단으로서 주어진 과제의 창의적인 해결책을 찾습니다.'
+             , CI_HOMEPAGE = 'http://www.webinars.co.kr'
+	     WHERE CI_NO = 4;  
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '서정림'	
+		     , CI_FOUNDING_DATE = to_date('13/03/22','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 45
+		     , CI_BUSINESS_DETAIL = '호텔업'	
+             , CI_COMPANY_HISTORY = '2015 12 관광호텔업 특2등급 인증
+2015 09 식품접객업영업신고
+2015 09 숙박업영업신고
+2015 09 관광사업등록(관광호텔업)
+2015 09 호텔더원 개관
+2015 09 준공허가
+2014 01 호텔더원 착공
+2014 01 주식회사 호텔더원 (상호변경)
+2013 12 건축허가
+2013 03 주식회사 아이리스호텔 법인설립'	
+		     , CI_COMPANY_VISION = 'SENSE
+호텔 더 원은 삼다도를 모티브로 제주의 고유 문화 및 미학적 요소를 현대적인 감각으로 접목시켜, 사람과 자연, 자연과 사람이 소통하는 제주의 이야기를 만들려고 합니다,
 
+SERVICE
+돌처럼 굳건하게, 여인처럼 포근함을, 바람처럼 신속한 최상의 서비스를 제공해 드릴 것을 약속 드리겠습니다.
+
+MEMORISE
+더 나아가 아름답고 깨끗한 섬, 제주도에서의 낭만과 사랑, 환경과 문화가 공존하는 공간으로써, 고객님의 소중한 꿈과 희망, 추억을 키워갈 수 있기를 소망합니다.'
+             , CI_HOMEPAGE = 'www.hoteltheone.com'
+	     WHERE CI_NO = 5;
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '김석회/이재림'	
+		     , CI_FOUNDING_DATE = to_date('92/03/13','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 83
+		     , CI_BUSINESS_DETAIL = '철근콘크리트공사,주택건설,토공사,주택임대,임대,토목엔지니어링서비스,건물엔지니어링서비스'	
+             , CI_COMPANY_HISTORY = '2020 01 보림토건(주) 영남지사 설립
+2019 10 보림토건(주) 여수지사 설립
+2018 03 습식방수 공사업 면허취득
+2017 11 kOSHA18001 인증 재취득(한국산업안전공단)
+2015 12 본점을 서울시 광진구 광장동 127번지로 이전
+2014 03 사업목적에 주택임대업 등을 추가
+2010  07 사업목적에 정비사업전문관리업 추가
+2010 06 KOSHA18001 인증획득
+2008 07 아랍에미레이트 두바이 건설업 면허 취득
+2007 05 지점 설치 : 두바이지점
+2007 05 해외건설업 신고(철근콘크리트, 토공사, 비계.구조물해체공사업)
+2005 12 자본증자 : 600,000,000원 / 총납입자본 : 2,400,000,000 원
+2004 08 비계.구조물해체공사업 면허 취득(광진-04-07-04)
+2003 12 자본증자 : 600,000,000원 / 총납입자본 : 1,200,000,000
+2002 06 본점을 서울시 광진구 구의동 594-4 소재로 이전
+2001 10 자본증자 : 120,000,000원 / 총납입자본 : 600,000,000
+1999 05 ISO 9002 인증 취득((주)BSI 인증원)
+1996 11 전문건설업 면허양수 - 철근콘크리트공사업, 토공사업
+1996 10 자본증자 : 360,000,000원 / 총납입자본 : 480,000,000원
+1996 08 상호를 보림토건(주)로 변경 및 각자대표이사 김석회, 이재림 취임
+1996 08 본사 이전 : 서울시 광진구 구의동 216-8
+1996 08 사업목적에 택지조성업, 주택건설업외 추가
+1995 03 각자대표이사 하태인 사임
+1992 04 주택건설 면허 취득
+1992 03 자본금 : 120,000,000원
+1992 03 성조주택건설(주) 설립(서울시 서초구 서초동 1339-2)'	
+		     , CI_COMPANY_VISION = '주요 사업내용 : 전문건설, 부동산 매매 및 임대, 건축자재 판매
+주요 취급품목 : 철근콘크리트공사, 비계구조물해체공사, 토공사'
+	     WHERE CI_NO = 6;     
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '정형태'	
+		     , CI_FOUNDING_DATE = to_date('08/06/13','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 51
+		     , CI_BUSINESS_DETAIL = '진로직업체험관/소프트웨어,온라인 모바일게임,게임소프트웨어 개발,공급/행사대행,진로캠프,학술'	
+             , CI_COMPANY_HISTORY = '2018 05 광주광역시교육청 진로체험지원센터 위탁 운영
+2017 04 강원랜드 하이원 드림-업 페스티벌 진로박람회 운영
+2017 02 광주광역시 호남권 제1의 청소년 진로직업체험관 개관
+2016 10 진로페스티벌 운영
+2016 10 담양군청 청소년진로직업체험 부스 위탁 운영
+2015 08 (주)드림잡스쿨로 상호변경 신고
+2015 01 광주광역시동부교육지원청 진로체험지원센터 위탁 운영(~2016)
+2013 11 학교로 찾아가는 진로직업체험 교육 운영
+2009 10 민간인참여사업 방과후 컴퓨터교실 운영
+2008 06 (주)글로벌에듀아이 법인 설립'	
+		     , CI_COMPANY_VISION = '드림잡스쿨은 너무너무 하고싶은 재미있는 내 자신을 발전하는 일을 하고자 합니다.
+가족처럼 일하고 서로 배려하는 마음 책임감있는 모든 사람이면 바로 콜 ~~ 환영합니다.
+
+물론, 한가지 재미있는 일을 위해 하기싫은 열가지 일을 해야 할 수 있습니다.
+우리는 재미있는 일만 찾는사람이 아니라, 자신을 성장시키고 회사를 발전 시키는 열가지일을 끝낼 수 있는 사람을 찾습니다.
+
+드림잡스쿨은 회사로 부터 급여를 받는 만큼 일하기만 하면 되는, 일개 직원을 원하지 않습니다.
+그보다 회사의 눈부신 성장을 직접 만들어 내고, 그에 상응하는 주식 지분을 받아 회사의 소유자가 되는 또다른 회사의 창립자를 찾습니다.
+
+단순히 말로만 팀이 아닌, 회사의 일부를 소유할 수 있는 스톡옵션, 지분을 제공하며 팀과 하나가 되어 강한 동기부여가 될 수 있도록 장려합니다.
+
+드림잡스쿨은 수십년동안 관련업을 한 백전노장도 없고, 화려한 스펙을 쌓고 있는 스타도 없습니다.
+하지만 맨바닥에서 급성장하고 있고 빅뱅할 준비가 되어 있습니다.
+
+열정적인 사람들과, 새로운 분야의 업무를 포기하지 않고 머리를 싸매고 공부하는 사람들이 있습니다.
+
+우리는 이런 사람들이며, 또한 이런 사람들을 찾습니다.
+
+우리는 그 어떤 기업, 벤처 보다도 여러분의 꿈을 함께 이루어줄 수 있고, 글로벌에듀아이와 동반 성장을 희망하는 사람이면 환영합니다.'
+             , CI_HOMEPAGE = 'http://www.djobs.kr'
+	     WHERE CI_NO = 7; 
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '김지방'	
+		     , CI_FOUNDING_DATE = to_date('08/04/22','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 82
+		     , CI_BUSINESS_DETAIL = '온라인정보제공(인터넷뉴스),데이터베이스구축,판매,유선방송/홈쇼핑,전자상거래/방송프로그램'	
+             , CI_COMPANY_HISTORY = '2019 03 2019 미래경제포럼 개최
+2018 11 쿠키뉴스 창간 14주년 기념 포럼 개최
+2018 10 전남취재본부 설립
+2018 07 2018 국민일보쿠키뉴스 미래의학포럼 개최
+2018 05 2018 미래안전행복 대상, 미래안전건강포럼 개최
+2018 03 2018 미래경제포럼 개최
+2018 03 정병덕 대표 취임
+2018 01 내일로 여행 인수(여행전문매체)
+2017 11 제2회 국민일보쿠키뉴스 미래의학포럼 개최
+2017 07 제1회 인터넷언론상 언론사 부문 수상
+2017 06 제1회 쿠키뉴스 대학가요제 개최'	
+		     , CI_COMPANY_VISION = '#쿠키뉴스 – ‘갓 구워낸 바삭바삭한 뉴스’
+- ‘갓 구운 쿠키처럼 빠르고 생생하고 정확한 현장 뉴스’
+- ‘바삭바삭한 쿠키처럼 언론의 기본을 잃지 않는 건강한 뉴스’
+- ‘다양한 맛과 모양의 쿠키처럼 새롭고 신선한 형식의 스토리텔링 뉴스’
+- 쿠키뉴스는 뉴스 맛집이 되겠습니다.
+
+#쿠키건강TV - ‘더 건강한 내일’, No.1 건강채널!
+- ‘건강’은 행복의 핵심이며, 필요충분조건입니다.
+- 쿠키건강TV는 국민의 건강한 삶을 추구합니다.
+- 쿠키건강TV는 정확하고, 유익하고, 다양한 건강&생활 정보를 24시간 시청자에게 제공합니다.
+- 온 국민의 행복한 건강습관, 쿠키건강TV!'
+             , CI_HOMEPAGE = 'http://www.kukinews.com'
+	     WHERE CI_NO = 8;
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '진옥동'	
+		     , CI_FOUNDING_DATE = to_date('43/10/02','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 13332
+		     , CI_BUSINESS_DETAIL = '은행(은행업무,외국환업무,신탁업무)'	
+             , CI_COMPANY_HISTORY = '2020 04 일본현지법인 SBJ DNX 손자회사 편입
+2019 03 은행장 진옥동 취임'	
+		     , CI_COMPANY_VISION = '주요 사업내용 : 금융 서비스
+주요 취급품목 : 예금, 대출, 외환, 투자'
+             , CI_HOMEPAGE = 'http://www.shinhan.com'
+	     WHERE CI_NO = 9;  
+UPDATE COMPANY_INFO
+		   SET CI_CEONAME = '최태원'	
+		     , CI_FOUNDING_DATE = to_date('10/01/21','RR/MM/DD')	
+		     , CI_EMPLOYEE_NUMBER = 200
+		     , CI_BUSINESS_DETAIL = '출판,광고 제조/,공제,소프트웨어,위탁교육훈련서비스,유통정보관련용역,사업지원서비스'	
+             , CI_COMPANY_HISTORY = '1981 12 회사설립'	
+		     , CI_COMPANY_VISION = 'ㅇ 법정경제단체
+133년의 역사를 가진 경제단체로서 특별법인 상공회의소법에 의하여 설립·운영되고 있는 법정 민간경제단체입니다.
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ㅇ 종합경제단체
+모든 업종(1차산업은 제외)의 대‧중소기업을 망라하여 상공업자 모두를 회원으로 하는 종합경제단체로서 경제계 전체를 대표하고있습니다. 　　　　　　　　　　　　　　　　　　　
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ㅇ 지역에 기반을 둔 경제단체
+지역 상공업의 개선 발전과 지역사회의 개발을 위해 지역내 상공인들이 자율적으로 설립한 단체로서 72개의 상공회의소가 전국의 행정구역을 분할·관장하고 있습니다.
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ㅇ 범세계적인 경제단체
+전세계 130여 개국에 설립돼 있는 상공회의소와 상호 긴밀한 협력체계를 갖추고 국제공증사업, 민간경제협력 위원회의 설치, 운영, 통상사절단의 파견 및 영접 등 통상진흥활동을 수행하고 있는 범세계적인 민간경제기구 입니다.'
+	     WHERE CI_NO = 10;         
+         
+-- 판매정보 (12개)
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,TO_DATE('2021-11-25','YYYY-MM-DD'),TO_DATE('2021-12-31','YYYY-MM-DD'),2,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,TO_DATE('2021-12-20','YYYY-MM-DD'),TO_DATE('2021-12-30','YYYY-MM-DD'),3,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),4,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),5,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+INSERT INTO PROMOTION_ORDER VALUES(SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-11-26','YYYY-MM-DD'),1,15);
+-- 결제 (12개)
+BEGIN
+    FOR I IN 1..12
+    LOOP
+    INSERT INTO PAYMENT VALUES (SEQ_PAYMENT_NO.NEXTVAL,I,TO_DATE('2021-11-22','YYYY-MM-DD'),20000,'카드결제','결제');
+ END LOOP;
+END;
+/
 
 
 COMMIT;
