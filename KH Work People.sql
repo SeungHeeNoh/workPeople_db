@@ -2297,7 +2297,7 @@ BEGIN
         '경기도 성남시 분당구','야탑동 123번지 456호',5,SEQ_ATTACHMENT_NO.CURRVAL);
         
         INSERT INTO EDUCATION VALUES
-        (I,'upperHigh','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
+        (I,'대졸이상','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
         '대학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
         '대학원(석사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
         '대학원(박사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
