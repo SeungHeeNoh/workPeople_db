@@ -621,7 +621,7 @@ COMMENT ON COLUMN company_info.ci_company_history IS '연혁 및 실적';
 
 COMMENT ON COLUMN company_info.ci_company_vision IS '기업 개요 및 비전';
 
-COMMENT ON COLUMN company_info.ci_hompage IS '홈페이지';
+COMMENT ON COLUMN company_info.ci_homepage IS '홈페이지';
 
 COMMENT ON COLUMN company_info.a_no IS '첨부파일번호';
 
@@ -2035,7 +2035,7 @@ values(SEQ_COMPANY_INFO_NO.NEXTVAL,'104-82-03590',null,null,0,null,null,null,nul
 Insert into MEMBER (M_NO,MT_NO,M_ID,M_PWD,M_NAME,M_PHONE,M_EMAIL,M_POSTCODE,M_ROADADDRESS,M_DETAILADDRESS,M_ENROLL_DATE,M_MODIFY_DATE,M_LOGIN_FAIL_COUNT,M_IS_LOCK,M_LATEST_TRY_LOGIN_DATE,M_LOCK_COUNT,M_STATUS,M_TEMP_PWD_YN) values (SEQ_MEMBER_NO.NEXTVAL,2,'cuser11','$2a$10$RZHVhFyiL.D2fepnODmCvewpZcMeMcgBvMOs/QcCmEfrY/TAwRO4O','(주)키글','01010001000','sun_di@kh.or.kr','06664','서울 서초구 방배로18길5','3층',to_date('21/11/25','RR/MM/DD'),to_date('21/11/25','RR/MM/DD'),0,'N',null,0,'Y','N');
 Insert into MEMBER_ROLE (M_NO,A_CODE) values (SEQ_MEMBER_NO.CURRVAL,2);
 Insert into COMPANY_INFO (CI_NO,CI_COMPANY_REGISTER_NUMBER,CI_CEONAME,CI_FOUNDING_DATE,CI_EMPLOYEE_NUMBER,CI_BUSINESS_DETAIL,CI_COMPANY_HISTORY,CI_COMPANY_VISION,CI_HOMEPAGE,A_NO,CI_STATUS_YN,CT_NO,M_NO,S_NO)
-values (SEQ_COMPANY_INFO_NO.NEXTVAL,'1488600081',null,null,0,null,null,null,null,null,'N',4,SEQ_MEMBER_NO.CURRVAL,5);
+values (SEQ_COMPANY_INFO_NO.NEXTVAL,'148-86-00081',null,null,0,null,null,null,null,null,'N',4,SEQ_MEMBER_NO.CURRVAL,5);
 
 
 
