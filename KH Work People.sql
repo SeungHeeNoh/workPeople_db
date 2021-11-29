@@ -2360,7 +2360,7 @@ UPDATE COMPANY_INFO
 	     WHERE CI_NO = 2;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '하상건'	
-		     , CI_FOUNDING_DATE = to_date('00/09/27','RR/MM/DD')	
+		     , CI_FOUNDING_DATE = to_date('00/09/27','YY/MM/DD')	
 		     , CI_EMPLOYEE_NUMBER = 44
 		     , CI_BUSINESS_DETAIL = '화공약품,표면처리제도소매,오파,제조'	
              , CI_COMPANY_HISTORY = '2007 06 사업장 이전 : 안산시 초지동
@@ -2370,7 +2370,7 @@ UPDATE COMPANY_INFO
 2000 09 법인 전환 : 대원이노베이션(주)
 1996 09 대원통상 개업'	
 		     , CI_COMPANY_VISION = '당사는 미국/일본/대만/독일/룩셈부르크/영국 등에서 PCB 제조 및 표면 처리
-약품을 수입하여 국내 삼성전기,엘지이노텍,대덕전자 & GDS,심텍,이수페타시스&엑사보드,영풍전자,인터프렉스,코리아써키트 등에 공급하고 있습니다.
+약품을 수입하여 국내 삼성전기,엘지이노텍,대덕전자 , GDS,심텍,이수페타시스,엑사보드,영풍전자,인터프렉스,코리아써키트 등에 공급하고 있습니다.
 큰기업은 아니지만 탄탄하게 성장하고 있는 기업입니다. 대원이노베이션과 같이 성장 하실 직원분들을 모집합니다. 많은 관심 부탁드립니다.'
              , CI_HOMEPAGE = 'http://www.idaewon.com'
              , S_NO = 4
@@ -2541,7 +2541,7 @@ UPDATE COMPANY_INFO
 #쿠키건강TV - ‘더 건강한 내일’, No.1 건강채널!
 - ‘건강’은 행복의 핵심이며, 필요충분조건입니다.
 - 쿠키건강TV는 국민의 건강한 삶을 추구합니다.
-- 쿠키건강TV는 정확하고, 유익하고, 다양한 건강&생활 정보를 24시간 시청자에게 제공합니다.
+- 쿠키건강TV는 정확하고, 유익하고, 다양한 건강 생활 정보를 24시간 시청자에게 제공합니다.
 - 온 국민의 행복한 건강습관, 쿠키건강TV!'
              , CI_HOMEPAGE = 'http://www.kukinews.com'
 	     WHERE CI_NO = 8;
