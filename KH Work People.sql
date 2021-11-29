@@ -256,7 +256,7 @@ CREATE TABLE Basic_Info (
 	bi_phone	varchar2(15 char)		NOT NULL,
 	bi_address	varchar2(30 char)		NOT NULL,
 	bi_address_detail	varchar2(15 char)		NOT NULL,
-	sector_no	number		NOT NULL,
+	s_no 	number		NOT NULL,
 	a_no	NUMBER		NOT NULL
 );
 
@@ -280,7 +280,7 @@ COMMENT ON COLUMN Basic_Info.bi_address IS '주소';
 
 COMMENT ON COLUMN Basic_Info.bi_address_detail IS '상세주소';
 
-COMMENT ON COLUMN Basic_Info.sector_no IS '업종 번호';
+COMMENT ON COLUMN Basic_Info.s_no IS '업종 번호';
 
 COMMENT ON COLUMN Basic_Info.a_no IS '첨부파일번호';
 
@@ -1365,7 +1365,7 @@ REFERENCES Resume (
 );
 
 ALTER TABLE Basic_Info ADD CONSTRAINT FK_sector_TO_Basic_Info_1 FOREIGN KEY (
-	sector_no
+	s_no
 )
 REFERENCES sector (
 	s_no
