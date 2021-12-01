@@ -370,7 +370,7 @@ CREATE TABLE License (
 	r_no	number		NOT NULL,
 	l_name	varchar2(20 char)		NOT NULL,
 	l_department	varchar2(20 char)		NOT NULL,
-	l_pass_YN	varchar2(1 char)		NOT NULL,
+	l_pass_YN	varchar2(10 char)		NOT NULL,
 	l_acquisition_date	date		NOT NULL
 );
 
@@ -392,9 +392,8 @@ CREATE TABLE Language (
 	l_no	number		NOT NULL,
 	r_no	number		NOT NULL,
 	l_name	varchar2(20 char)		NOT NULL,
-	l_type	varchar2(20 char)		NOT NULL,
-	l_score	number		NOT NULL,
-	l_rating	varchar2(20 char)		NOT NULL,
+	l_department	varchar2(20 char)		NOT NULL,
+	l_score	varchar2(10 char)	NOT NULL,
 	l_acquisition	date		NOT NULL
 );
 
@@ -402,13 +401,11 @@ COMMENT ON COLUMN Language.l_no IS '어학 번호';
 
 COMMENT ON COLUMN Language.r_no IS '이력서번호';
 
-COMMENT ON COLUMN Language.l_name IS '언어 종류';
+COMMENT ON COLUMN Language.l_name IS '언어/시험명';
 
-COMMENT ON COLUMN Language.l_type IS '시험 종류';
+COMMENT ON COLUMN Language.l_department IS '발행처';
 
-COMMENT ON COLUMN Language.l_score IS '점수';
-
-COMMENT ON COLUMN Language.l_rating IS '급수';
+COMMENT ON COLUMN Language.l_score IS '급수/점수';
 
 COMMENT ON COLUMN Language.l_acquisition IS '취득일';
 
@@ -2297,14 +2294,14 @@ BEGIN
         '경기도 성남시 분당구','야탑동 123번지 456호',5,SEQ_ATTACHMENT_NO.CURRVAL);
         
         INSERT INTO EDUCATION VALUES
-        (I,'대졸이상','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
+        (I,'대학교 졸업 이상','학교이름'||I,'전공'||I,SYSDATE,SYSDATE,'bachelor',
         '대학교이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
         '대학원(석사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
         '대학원(박사) 이름'||I,SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
         
         INSERT INTO CAREER VALUES
         (SEQ_CAREER_NO.NEXTVAL,I,'Y','회사이름'||I,SYSDATE,SYSDATE,'사원','부서이름'||I,
-        '담당 업무'||I,'개인 사유');
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?'||I,'현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
         
         INSERT INTO ACTIVITY VALUES
         (SEQ_ACTIVITY_NO.NEXTVAL,I,'대외활동'||I,'기관,장소'||I,SYSDATE,SYSDATE,
@@ -2315,10 +2312,10 @@ BEGIN
 바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
 
         INSERT INTO LICENSE VALUES
-        (SEQ_LICENSE_NO.NEXTVAL,I,'자격증명'||I,'발행처,기관'||I,'Y',SYSDATE);
+        (SEQ_LICENSE_NO.NEXTVAL,I,'자격증명'||I,'발행처,기관'||I,'최종합격',SYSDATE);
         
         INSERT INTO LANGUAGE VALUES
-        (SEQ_LANGUAGE_NO.NEXTVAL,I,'언어 종류'||I,'시험 종류'||I,86,'급수'||I,SYSDATE);
+        (SEQ_LANGUAGE_NO.NEXTVAL,I,'언어/시험 종류'||I,'발행처'||I,'급수/점수'||I,SYSDATE);
         
         INSERT INTO AWARDS VALUES
         (SEQ_AWARDS_NO.NEXTVAL,I,'수상명'||I,'수여기관'||I,SYSDATE);
