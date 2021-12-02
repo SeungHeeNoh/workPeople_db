@@ -1035,7 +1035,8 @@ CREATE TABLE Apply_Interview (
 	r_no	number		NOT NULL,
 	ai_certification	varchar2(10 char)		NOT NULL,
 	ai_date	date		NOT NULL,
-	ai_time	date		NOT NULL
+	ai_time	date		NOT NULL,
+	ai_status_YN	varchar2(1 char)	DEFAULT 'N'	NOT NULL
 );
 
 COMMENT ON COLUMN Apply_Interview.jv_no IS '공고 번호';
@@ -1047,6 +1048,8 @@ COMMENT ON COLUMN Apply_Interview.ai_certification IS '인증번호';
 COMMENT ON COLUMN Apply_Interview.ai_date IS '면접 날짜';
 
 COMMENT ON COLUMN Apply_Interview.ai_time IS '면접 시간';
+
+COMMENT ON COLUMN Apply_Interview.ai_status_YN IS '면접 종료 여부';
 
 
 
