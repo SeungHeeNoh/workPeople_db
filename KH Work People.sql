@@ -500,8 +500,6 @@ COMMENT ON COLUMN scrap_company.m_no IS '회원번호(기업)';
 
 COMMENT ON COLUMN scrap_company.r_no IS '이력서번호';
 
-
-
 CREATE TABLE payment (
 	pay_no	number		NOT NULL,
 	p_no	number		NOT NULL,
@@ -782,14 +780,15 @@ COMMENT ON COLUMN Education.e_doctor_standard_credit IS '대학원(박사) 기�
 
 CREATE TABLE Interested_Company (
 	m_no	number		NOT NULL,
-	ci_no	number		NOT NULL
+	ci_no	number		NOT NULL,
+    ic_date date	DEFAULT SYSDATE	NOT NULL	
 );
 
 COMMENT ON COLUMN Interested_Company.m_no IS '회원번호';
 
 COMMENT ON COLUMN Interested_Company.ci_no IS '기업 정보 번호';
 
-
+COMMENT ON COLUMN Interested_Company.ic_date IS '관심기업 등록일';
 
 CREATE TABLE Email (
 	e_no	number		NOT NULL,
@@ -893,12 +892,15 @@ COMMENT ON COLUMN job_vacancy.pt_no IS '급여종류번호';
 
 CREATE TABLE Browse (
 	m_no	number		NOT NULL,
-	jv_no	number		NOT NULL
+	jv_no	number		NOT NULL,
+    b_date	date	DEFAULT SYSDATE	NOT NULL
 );
 
 COMMENT ON COLUMN Browse.m_no IS '회원번호';
 
 COMMENT ON COLUMN Browse.jv_no IS '공고 번호';
+
+COMMENT ON COLUMN Browse.b_date IS '최근 공고 열람일';
 
 
 
@@ -1003,14 +1005,15 @@ COMMENT ON COLUMN education_level.el_name IS '학력 정보명';
 
 CREATE TABLE Scrap (
 	m_no	number		NOT NULL,
-	jv_no	number		NOT NULL
+	jv_no	number		NOT NULL,
+    s_date	date	DEFAULT SYSDATE	NOT NULL
 );
 
 COMMENT ON COLUMN Scrap.m_no IS '회원번호';
 
 COMMENT ON COLUMN Scrap.jv_no IS '공고 번호';
 
-
+COMMENT ON COLUMN Scrap.s_date IS '스크랩 등록일';
 
 CREATE TABLE Apply_Company (
 	jv_no	number		NOT NULL,
@@ -2185,9 +2188,9 @@ INSERT INTO RECRUITMENT_INDUSTRY VALUES(1,11);
 BEGIN
     FOR I IN 1..11
     LOOP
-        INSERT INTO INTERESTED_COMPANY VALUES(4,I);
-        INSERT INTO SCRAP VALUES(4,I);
-        INSERT INTO BROWSE VALUES(4,I);
+        INSERT INTO INTERESTED_COMPANY VALUES(4,I,SYSDATE);
+        INSERT INTO SCRAP VALUES(4,I,SYSDATE);
+        INSERT INTO BROWSE VALUES(4,I,SYSDATE);
     END LOOP;
 END;
 /
