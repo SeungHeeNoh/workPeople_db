@@ -2428,16 +2428,6 @@ END;
 
 
 -- 담당자 : 서정화
--- 로고 
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'1. 호텔 더원.jpg','9713f350e71e42708b1bf94204a0798a.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'2. 엠지이노베이션.png','4c38c0a444604c3cb39a0f38d0e7ef63.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'3. 대원이노베이션.png','1d04ad5eadf64258a186a31e538f8128.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'4. 웨비나스.png','353d31f7ad2a4af7a988d490c0d5bd20.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'5. 보림토건.png','809bd124c49a4d69a976692ebf48ef04.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'6. 드림잡스쿨.png','d2ace0966c6a4bcb96c939d056047ad3.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'7. 쿠키미디어.jpg','0453152dc16041579c9653ef37f405f2.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'8. 신한은행.jpg','46e8323ada784511b7bede5853cd0ed9.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'9. 대한상공회의소.jpeg','b012ce47c3874c89ab1f484c257c6a58.jpeg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
 -- 기업회원 정보 수정(10개)
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '임상헌'	
@@ -2457,7 +2447,6 @@ UPDATE COMPANY_INFO
 		     , CI_EMPLOYEE_NUMBER = 3	
 		     , CI_BUSINESS_DETAIL = '금속나노분말 제조'	
              , S_NO = 3
-             , A_NO = 13
 	     WHERE CI_NO = 2;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '하상건'	
@@ -2475,7 +2464,6 @@ UPDATE COMPANY_INFO
 큰기업은 아니지만 탄탄하게 성장하고 있는 기업입니다. 대원이노베이션과 같이 성장 하실 직원분들을 모집합니다. 많은 관심 부탁드립니다.'
              , CI_HOMEPAGE = 'http://www.idaewon.com'
              , S_NO = 4
-             , A_NO = 14
 	     WHERE CI_NO = 3;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '박재오'	
@@ -2522,7 +2510,6 @@ UPDATE COMPANY_INFO
 3. 창의적인 협업
 협업은 우리의 기본 자질이자, 우리가 제공하는 서비스입니다. 우리는 다양한 분야의 전문가가 모인 집단으로서 주어진 과제의 창의적인 해결책을 찾습니다.'
              , CI_HOMEPAGE = 'http://www.webinars.co.kr'
-              , A_NO = 15
 	     WHERE CI_NO = 4;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '서정림'	
@@ -2548,7 +2535,6 @@ SERVICE
 MEMORISE
 더 나아가 아름답고 깨끗한 섬, 제주도에서의 낭만과 사랑, 환경과 문화가 공존하는 공간으로써, 고객님의 소중한 꿈과 희망, 추억을 키워갈 수 있기를 소망합니다.'
              , CI_HOMEPAGE = 'www.hoteltheone.com'
-              , A_NO = 12
 	     WHERE CI_NO = 5;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '김석회/이재림'	
@@ -2619,7 +2605,6 @@ UPDATE COMPANY_INFO
 
 우리는 그 어떤 기업, 벤처 보다도 여러분의 꿈을 함께 이루어줄 수 있고, 글로벌에듀아이와 동반 성장을 희망하는 사람이면 환영합니다.'
              , CI_HOMEPAGE = 'http://www.djobs.kr'
-              , A_NO = 17
 	     WHERE CI_NO = 7; 
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '김지방'	
@@ -2649,7 +2634,6 @@ UPDATE COMPANY_INFO
 - 쿠키건강TV는 정확하고, 유익하고, 다양한 건강 생활 정보를 24시간 시청자에게 제공합니다.
 - 온 국민의 행복한 건강습관, 쿠키건강TV!'
              , CI_HOMEPAGE = 'http://www.kukinews.com'
-             , A_NO = 18
 	     WHERE CI_NO = 8;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '진옥동'	
@@ -2661,7 +2645,6 @@ UPDATE COMPANY_INFO
 		     , CI_COMPANY_VISION = '주요 사업내용 : 금융 서비스
 주요 취급품목 : 예금, 대출, 외환, 투자'
              , CI_HOMEPAGE = 'http://www.shinhan.com'
-             , A_NO = 19
 	     WHERE CI_NO = 9;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '최태원'	
@@ -2680,7 +2663,6 @@ UPDATE COMPANY_INFO
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 ㅇ 범세계적인 경제단체
 전세계 130여 개국에 설립돼 있는 상공회의소와 상호 긴밀한 협력체계를 갖추고 국제공증사업, 민간경제협력 위원회의 설치, 운영, 통상사절단의 파견 및 영접 등 통상진흥활동을 수행하고 있는 범세계적인 민간경제기구 입니다.'
-             , A_NO = 20
 	     WHERE CI_NO = 10;         
          
 -- 판매정보 (12개)
@@ -2703,6 +2685,6 @@ Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,6,to_date('21/12/02','RR/MM/D
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,7,to_date('21/12/02','RR/MM/DD'),2500,'카드결제','imp_385350926600');
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,8,to_date('21/12/02','RR/MM/DD'),2000,'카드결제','imp_570399709029');
 
--- 로고 
+
 
 COMMIT;
