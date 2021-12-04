@@ -2444,15 +2444,15 @@ END;
 
 -- 담당자 : 서정화
 -- 로고 
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'1. 호텔 더원.jpg','9713f350e71e42708b1bf94204a0798a.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'2. 엠지이노베이션.png','4c38c0a444604c3cb39a0f38d0e7ef63.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'3. 대원이노베이션.png','1d04ad5eadf64258a186a31e538f8128.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'4. 웨비나스.png','353d31f7ad2a4af7a988d490c0d5bd20.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'5. 보림토건.png','809bd124c49a4d69a976692ebf48ef04.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'6. 드림잡스쿨.png','d2ace0966c6a4bcb96c939d056047ad3.png','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'7. 쿠키미디어.jpg','0453152dc16041579c9653ef37f405f2.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'8. 신한은행.jpg','46e8323ada784511b7bede5853cd0ed9.jpg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
-Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'9. 대한상공회의소.jpeg','b012ce47c3874c89ab1f484c257c6a58.jpeg','\images\uploadFiles\','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'1. 호텔 더원.jpg','9713f350e71e42708b1bf94204a0798a.jpg','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'2. 엠지이노베이션.png','4c38c0a444604c3cb39a0f38d0e7ef63.png','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'3. 대원이노베이션.png','1d04ad5eadf64258a186a31e538f8128.png','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'4. 웨비나스.png','353d31f7ad2a4af7a988d490c0d5bd20.png','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'5. 보림토건.png','809bd124c49a4d69a976692ebf48ef04.png','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'6. 드림잡스쿨.png','d2ace0966c6a4bcb96c939d056047ad3.png','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'7. 쿠키미디어.jpg','0453152dc16041579c9653ef37f405f2.jpg','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'8. 신한은행.jpg','46e8323ada784511b7bede5853cd0ed9.jpg','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
+Insert into ATTACHMENT  values (SEQ_ATTACHMENT_NO.NEXTVAL,'9. 대한상공회의소.jpeg','b012ce47c3874c89ab1f484c257c6a58.jpeg','/images/uploadFiles/','N',to_date('21/12/03','RR/MM/DD'),to_date('21/12/03','RR/MM/DD'));
 -- 기업회원 정보 수정(10개)
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '임상헌'	
