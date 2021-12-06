@@ -45,7 +45,14 @@ DROP TABLE Language CASCADE CONSTRAINTS;
 DROP TABLE Apply_Company CASCADE CONSTRAINTS;
 DROP TABLE Apply_Interview CASCADE CONSTRAINTS;
 DROP TABLE report_vacancy CASCADE CONSTRAINTS;
-
+DROP TABLE Applied_Basic_Info;
+DROP TABLE Applied_Education;
+DROP TABLE Applied_Career;
+DROP TABLE Applied_Activity;
+DROP TABLE Applied_License;
+DROP TABLE Applied_Language;
+DROP TABLE Applied_Awards;
+DROP TABLE Applied_Self_Introduction;
 
 -- DROP SEQUENCE
 
@@ -67,7 +74,9 @@ DROP SEQUENCE SEQ_SELF_INTR_NO;
 DROP SEQUENCE SEQ_RESUME_BROWSE_NO;
 -- 이력서 열람 번호
 DROP SEQUENCE SEQ_APPLY_INTERVIEW_NO;
--- 이력서 열람 번호
+-- 
+DROP SEQUENCE SEQ_APPLY_COMPANY_NO;
+-- 입사지원 구분번호
 
 -- 담당자 : 노승희
 DROP SEQUENCE SEQ_MEMBER_TYPE_NO;
@@ -142,6 +151,8 @@ CREATE SEQUENCE SEQ_RESUME_BROWSE_NO;
 -- 이력서 열람 번호
 CREATE SEQUENCE SEQ_APPLY_INTERVIEW_NO;
 -- 이력서 열람 번호
+CREATE SEQUENCE SEQ_APPLY_COMPANY_NO;
+-- 입사지원 구분번호
 
 -- 담당자 : 노승희
 CREATE SEQUENCE SEQ_MEMBER_TYPE_NO;
@@ -1027,38 +1038,35 @@ COMMENT ON COLUMN Scrap.jv_no IS '공고 번호';
 COMMENT ON COLUMN Scrap.s_date IS '스크랩 등록일';
 
 CREATE TABLE Apply_Company (
-	jv_no	number		NOT NULL,
-	r_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
 	ac_type	varchar2(10 char)		NOT NULL,
 	ac_date	date	DEFAULT sysdate	NOT NULL,
-	ac_deleteYN	varchar2(1 char)	DEFAULT 'N'	NOT NULL
+	ac_deleteYN	varchar2(1 char)	DEFAULT 'N'	NOT NULL,
+	m_no	number		NOT NULL,
+	jv_no	number		NOT NULL
 );
 
-COMMENT ON COLUMN Apply_Company.jv_no IS '공고 번호';
+COMMENT ON COLUMN Apply_Company.ac_no IS '입사지원 구분번호';
 
-COMMENT ON COLUMN Apply_Company.r_no IS '이력서번호';
-
-COMMENT ON COLUMN Apply_Company.ac_type IS '지원상태';
+COMMENT ON COLUMN Apply_Company.ac_type IS '지원상태(apply, pass, interview, passAll,failure )';
 
 COMMENT ON COLUMN Apply_Company.ac_date IS '지원일';
 
 COMMENT ON COLUMN Apply_Company.ac_deleteYN IS '삭제 여부(Y,N)';
 
+COMMENT ON COLUMN Apply_Company.m_no IS '회원번호';
+
+COMMENT ON COLUMN Apply_Company.jv_no IS '공고 번호';
+
 CREATE TABLE Apply_Interview (
-	ai_no	number		NOT NULL,
-	jv_no	number		NOT NULL,
-	r_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
 	ai_certification	varchar2(10 char)		NOT NULL,
 	ai_date	date		NOT NULL,
 	ai_time	date		NOT NULL,
 	ai_status_YN	varchar2(1 char)	DEFAULT 'N'	NOT NULL
 );
 
-COMMENT ON COLUMN Apply_Interview.ai_no IS '면접 구분 번호';
-
-COMMENT ON COLUMN Apply_Interview.jv_no IS '공고 번호';
-
-COMMENT ON COLUMN Apply_Interview.r_no IS '이력서번호';
+COMMENT ON COLUMN Apply_Interview.ac_no IS '입사지원 구분번호';
 
 COMMENT ON COLUMN Apply_Interview.ai_certification IS '인증번호';
 
@@ -1161,6 +1169,289 @@ CREATE TABLE MANAGER_ROLE (
 COMMENT ON COLUMN MANAGER_ROLE.im_no IS '관리자 번호';
 
 COMMENT ON COLUMN MANAGER_ROLE.a_code IS '권한코드';
+
+-- 입사지원 관련 추가 테이블
+
+
+CREATE TABLE Applied_Basic_Info (
+	ac_no	number		NOT NULL,
+	bi_title	varchar2(30 char)		NOT NULL,
+	bi_name	varchar2(10 char)		NOT NULL,
+	bi_gender	varchar2(1 char)		NOT NULL,
+	bi_birth_date	date		NOT NULL,
+	bi_age	number		NOT NULL,
+	bi_email	varchar2(90 char)		NOT NULL,
+	bi_phone	varchar2(15 char)		NOT NULL,
+	bi_address	varchar2(30 char)		NOT NULL,
+	bi_address_detail	varchar2(15 char)		NOT NULL,
+	s_no	number		NOT NULL,
+	a_no	NUMBER		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_Basic_Info.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_title IS '이력서제목';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_name IS '이름';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_gender IS '성별';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_birth_date IS '생년월일';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_age IS '나이';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_email IS '이메일';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_phone IS '전화번호';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_address IS '주소';
+
+COMMENT ON COLUMN Applied_Basic_Info.bi_address_detail IS '상세주소';
+
+COMMENT ON COLUMN Applied_Basic_Info.s_no IS '업종 번호';
+
+COMMENT ON COLUMN Applied_Basic_Info.a_no IS '첨부파일번호';
+
+
+
+CREATE TABLE Applied_Education (
+	ac_no	number		NOT NULL,
+	e_type	varchar2(10 char)		NOT NULL,
+	e_high_name	varchar2(20  char)		NULL,
+	e_high_major	varchar2(10 char)		NULL,
+	e_high_admission	date		NULL,
+	e_high_graduation	date		NULL,
+	e_colleage_type	varchar2(15 char)		NULL,
+	e_colleage_name	varchar2(20  char)		NULL,
+	e_colleage_admission	date		NULL,
+	e_colleage_admission_type	varchar2(10 char)		NULL,
+	e_colleage_graduate	date		NULL,
+	e_colleage_graduate_type	varchar2(10 char)		NULL,
+	e_colleage_major	varchar2(20 char)		NULL,
+	e_colleage_credit	varchar2(5 char)		NULL,
+	e_colleage_standard_credit	varchar2(5 char)		NULL,
+	e_master_name	varchar2(20  char)		NULL,
+	e_master_admission	date		NULL,
+	e_master_admission_type	varchar2(10 char)		NULL,
+	e_master_graduate	date		NULL,
+	e_master_graduate_type	varchar2(10 char)		NULL,
+	e_master_major	varchar2(20 char)		NULL,
+	e_master_credit	varchar2(5 char)		NULL,
+	e_master_standard_credit	varchar2(5 char)		NULL,
+	e_doctor_name	varchar2(20  char)		NULL,
+	e_doctor_admission	date		NULL,
+	e_doctor_admission_type	varchar2(10 char)		NULL,
+	e_doctor_graduate	date		NULL,
+	e_doctor_graduate_type	varchar2(10 char)		NULL,
+	e_doctor_major	varchar2(20 char)		NULL,
+	e_doctor_credit	varchar2(5 char)		NULL,
+	e_doctor_standard_credit	varchar2(5 char)		NULL
+);
+
+COMMENT ON COLUMN Applied_Education.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Education.e_type IS '학력구분(underHigh, GED, high, upperHigh)';
+
+COMMENT ON COLUMN Applied_Education.e_high_name IS '학교이름';
+
+COMMENT ON COLUMN Applied_Education.e_high_major IS '전공 계열';
+
+COMMENT ON COLUMN Applied_Education.e_high_admission IS '입학 년월';
+
+COMMENT ON COLUMN Applied_Education.e_high_graduation IS '졸업 년월';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_type IS '학력구분(bachelor/professional)';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_name IS '대학 이름';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_admission IS '대학 입학년월';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_admission_type IS '대학 입학 구분(transfer,enter)';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_graduate IS '대학 졸업년월';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_graduate_type IS '대학 졸업구분(graduate,attending,absence,dropOut,candidate,attending)';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_major IS '대학 전공';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_credit IS '대학 학점';
+
+COMMENT ON COLUMN Applied_Education.e_colleage_standard_credit IS '대학 기준학점';
+
+COMMENT ON COLUMN Applied_Education.e_master_name IS '대학원(석사) 이름';
+
+COMMENT ON COLUMN Applied_Education.e_master_admission IS '대학원(석사)  입학년월';
+
+COMMENT ON COLUMN Applied_Education.e_master_admission_type IS '대학원(석사)  입학 구분(transfer,enter)';
+
+COMMENT ON COLUMN Applied_Education.e_master_graduate IS '대학원(석사) 졸업년월';
+
+COMMENT ON COLUMN Applied_Education.e_master_graduate_type IS '대학원(석사)  졸업구분(graduate,attending,absence,dropOut,candidate,attending)';
+
+COMMENT ON COLUMN Applied_Education.e_master_major IS '대학원(석사) 전공';
+
+COMMENT ON COLUMN Applied_Education.e_master_credit IS '대학원(석사) 학점';
+
+COMMENT ON COLUMN Applied_Education.e_master_standard_credit IS '대학원(석사) 기준학점';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_name IS '대학원(박사) 이름';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_admission IS '대학원(박사) 입학년월';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_admission_type IS '대학원(박사) 입학 구분(transfer,enter)';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_graduate IS '대학원(박사) 졸업년월';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_graduate_type IS '대학원(박사) 졸업구분(graduate,attending,absence,dropOut,candidate,attending)';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_major IS '대학원(박사) 전공';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_credit IS '대학원(박사) 학점';
+
+COMMENT ON COLUMN Applied_Education.e_doctor_standard_credit IS '대학원(박사) 기준학점';
+
+
+
+CREATE TABLE Applied_Career (
+	c_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	c_yn	varchar2(1 char)		NOT NULL,
+	c_name	varchar2(30 char)		NULL,
+	c_employment_date	date		NULL,
+	c_unemployment_date	date		NULL,
+	c_position	varchar2(20 char)		NULL,
+	c_department	varchar2(20 char)		NULL,
+	c_task	varchar2(300 char)		NULL,
+	c_resignation	varchar2(100 char)		NULL
+);
+
+COMMENT ON COLUMN Applied_Career.c_no IS '경력 번호';
+
+COMMENT ON COLUMN Applied_Career.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Career.c_yn IS '경력 여부';
+
+COMMENT ON COLUMN Applied_Career.c_name IS '회사 이름';
+
+COMMENT ON COLUMN Applied_Career.c_employment_date IS '취직 년월';
+
+COMMENT ON COLUMN Applied_Career.c_unemployment_date IS '실직 년월';
+
+COMMENT ON COLUMN Applied_Career.c_position IS '직급/직책';
+
+COMMENT ON COLUMN Applied_Career.c_department IS '근무 부서';
+
+COMMENT ON COLUMN Applied_Career.c_task IS '담당 업무';
+
+COMMENT ON COLUMN Applied_Career.c_resignation IS '퇴사 사유';
+
+
+
+CREATE TABLE Applied_Activity (
+	a_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	a_activity	varchar2(20 char)		NOT NULL,
+	a_department	varchar2(20 char)		NOT NULL,
+	a_start_date	date		NOT NULL,
+	a_end_date	date		NOT NULL,
+	a_content	varchar2(300 char)		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_Activity.a_no IS '활동번호';
+
+COMMENT ON COLUMN Applied_Activity.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Activity.a_activity IS '활동 구분';
+
+COMMENT ON COLUMN Applied_Activity.a_department IS '기관,장소';
+
+COMMENT ON COLUMN Applied_Activity.a_start_date IS '활동 시작일(년월일)';
+
+COMMENT ON COLUMN Applied_Activity.a_end_date IS '활동 종료일(년월일)';
+
+COMMENT ON COLUMN Applied_Activity.a_content IS '활동 내용';
+
+
+
+CREATE TABLE Applied_License (
+	l_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	l_name	varchar2(20 char)		NOT NULL,
+	l_department	varchar2(20 char)		NOT NULL,
+	l_pass_YN	varchar2(10 char)		NOT NULL,
+	l_acquisition_date	date		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_License.l_no IS '자격증 번호';
+
+COMMENT ON COLUMN Applied_License.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_License.l_name IS '자격증명';
+
+COMMENT ON COLUMN Applied_License.l_department IS '발행처,기관';
+
+COMMENT ON COLUMN Applied_License.l_pass_YN IS '합격여부';
+
+COMMENT ON COLUMN Applied_License.l_acquisition_date IS '취득일';
+
+
+CREATE TABLE Applied_Language (
+	l_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	l_name	varchar2(20 char)		NOT NULL,
+	l_department	varchar2(20 char)		NOT NULL,
+	l_score	varchar2(10 char)		NOT NULL,
+	l_acquisition	date		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_Language.l_no IS '어학 번호';
+
+COMMENT ON COLUMN Applied_Language.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Language.l_name IS '언어 종류';
+
+COMMENT ON COLUMN Applied_Language.l_department IS '시험 종류';
+
+COMMENT ON COLUMN Applied_Language.l_score IS '점수';
+
+COMMENT ON COLUMN Applied_Language.l_acquisition IS '취득일';
+
+
+
+CREATE TABLE Applied_Awards (
+	a_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	a_name	varchar2(20 char)		NOT NULL,
+	a_department	varchar2(20 char)		NOT NULL,
+	a_acquisition	date		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_Awards.a_no IS '수상내역 번호';
+
+COMMENT ON COLUMN Applied_Awards.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Awards.a_name IS '수상명';
+
+COMMENT ON COLUMN Applied_Awards.a_department IS '수여기관';
+
+COMMENT ON COLUMN Applied_Awards.a_acquisition IS '취득일';
+
+
+
+CREATE TABLE Applied_Self_Introduction (
+	si_no	number		NOT NULL,
+	ac_no	number		NOT NULL,
+	si_title	varchar2(30 char)		NOT NULL,
+	si_content	varchar2(1000 char)		NOT NULL
+);
+
+COMMENT ON COLUMN Applied_Self_Introduction.si_no IS '자소서 번호';
+
+COMMENT ON COLUMN Applied_Self_Introduction.ac_no IS '입사지원 구분번호';
+
+COMMENT ON COLUMN Applied_Self_Introduction.si_title IS '자소서 항목 제목';
+
+COMMENT ON COLUMN Applied_Self_Introduction.si_content IS '자소서 항목 내용';
 
 ALTER TABLE member ADD CONSTRAINT PK_MEMBER PRIMARY KEY (
 	m_no
@@ -1323,14 +1614,11 @@ ALTER TABLE Scrap ADD CONSTRAINT PK_SCRAP PRIMARY KEY (
 );
 
 ALTER TABLE Apply_Company ADD CONSTRAINT PK_APPLY_COMPANY PRIMARY KEY (
-	jv_no,
-	r_no
+	ac_no
 );
 
 ALTER TABLE Apply_Interview ADD CONSTRAINT PK_APPLY_INTERVIEW PRIMARY KEY (
-	ai_no,
-	jv_no,
-	r_no
+	ac_no
 );
 
 ALTER TABLE pay_type ADD CONSTRAINT PK_PAY_TYPE PRIMARY KEY (
@@ -1368,6 +1656,9 @@ ALTER TABLE MANAGER_ROLE ADD CONSTRAINT PK_MANAGER_ROLE PRIMARY KEY (
 	im_no,
 	a_code
 );
+
+
+
 
 ALTER TABLE member ADD CONSTRAINT FK_member_type_TO_member_1 FOREIGN KEY (
 	mt_no
@@ -1691,29 +1982,6 @@ REFERENCES job_vacancy (
 	jv_no
 );
 
-ALTER TABLE Apply_Company ADD CONSTRAINT FK_job_vacancy_TO_ApplyCompany FOREIGN KEY (
-	jv_no
-)
-REFERENCES job_vacancy (
-	jv_no
-);
-
-ALTER TABLE Apply_Company ADD CONSTRAINT FK_Resume_TO_Apply_Company_1 FOREIGN KEY (
-	r_no
-)
-REFERENCES Resume (
-	r_no
-);
-
-ALTER TABLE Apply_Interview ADD CONSTRAINT ac_ai_1 FOREIGN KEY (
-	jv_no,
-    r_no
-)
-REFERENCES Apply_Company (
-	jv_no,
-    r_no
-);
-
 
 ALTER TABLE report_vacancy ADD CONSTRAINT FK_member_TO_report_vacancy_1 FOREIGN KEY (
 	m_no
@@ -1783,6 +2051,127 @@ ALTER TABLE MANAGER_ROLE ADD CONSTRAINT FK_authority_TO_MANAGER_ROLE_1 FOREIGN K
 )
 REFERENCES authority (
 	a_code
+);
+
+ALTER TABLE Applied_Basic_Info ADD CONSTRAINT PK_APPLIED_BASIC_INFO PRIMARY KEY (
+	ac_no
+);
+
+ALTER TABLE Applied_Education ADD CONSTRAINT PK_APPLIED_EDUCATION PRIMARY KEY (
+	ac_no
+);
+
+ALTER TABLE Applied_Career ADD CONSTRAINT PK_APPLIED_CAREER PRIMARY KEY (
+	c_no,
+	ac_no
+);
+
+ALTER TABLE Applied_Activity ADD CONSTRAINT PK_APPLIED_ACTIVITY PRIMARY KEY (
+	a_no,
+	ac_no
+);
+
+ALTER TABLE Applied_License ADD CONSTRAINT PK_APPLIED_LICENSE PRIMARY KEY (
+	l_no,
+	ac_no
+);
+
+ALTER TABLE Applied_Language ADD CONSTRAINT PK_APPLIED_LANGUAGE PRIMARY KEY (
+	l_no,
+	ac_no
+);
+
+ALTER TABLE Applied_Awards ADD CONSTRAINT PK_APPLIED_AWARDS PRIMARY KEY (
+	a_no,
+	ac_no
+);
+
+ALTER TABLE Applied_Self_Introduction ADD CONSTRAINT PK_APPLIED_SELF_INTRODUCTION PRIMARY KEY (
+	si_no,
+	ac_no
+);
+ALTER TABLE Apply_Company ADD CONSTRAINT FK_member_TO_Apply_Company_1 FOREIGN KEY (
+	m_no
+)
+REFERENCES member (
+	m_no
+);
+
+ALTER TABLE Apply_Company ADD CONSTRAINT fk_ac_to_jv_1 FOREIGN KEY (
+	jv_no
+)
+REFERENCES job_vacancy (
+	jv_no
+);
+
+ALTER TABLE Applied_Basic_Info ADD CONSTRAINT Applied_Basic_Info_fk1 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Basic_Info ADD CONSTRAINT Applied_Basic_Info_fk2 FOREIGN KEY (
+	s_no
+)
+REFERENCES sector (
+	s_no
+);
+
+ALTER TABLE Applied_Basic_Info ADD CONSTRAINT Applied_Basic_Info_fk3 FOREIGN KEY (
+	a_no
+)
+REFERENCES attachment (
+	a_no
+);
+
+ALTER TABLE Applied_Education ADD CONSTRAINT Applied_Basic_Info_fk4 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Career ADD CONSTRAINT Applied_Basic_Info_fk5 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Activity ADD CONSTRAINT Applied_Basic_Info_fk6 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_License ADD CONSTRAINT Applied_Basic_Info_fk7 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Language ADD CONSTRAINT Applied_Basic_Info_fk8 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Awards ADD CONSTRAINT Applied_Basic_Info_fk9 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
+);
+
+ALTER TABLE Applied_Self_Introduction ADD CONSTRAINT Applied_Basic_Info_fk10 FOREIGN KEY (
+	ac_no
+)
+REFERENCES Apply_Company (
+	ac_no
 );
 
 -- CREATE VIEW
