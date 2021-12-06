@@ -3003,6 +3003,7 @@ UPDATE COMPANY_INFO
 1992 03 성조주택건설(주) 설립(서울시 서초구 서초동 1339-2)'	
 		     , CI_COMPANY_VISION = '주요 사업내용 : 전문건설, 부동산 매매 및 임대, 건축자재 판매
 주요 취급품목 : 철근콘크리트공사, 비계구조물해체공사, 토공사'
+             , A_NO = 16
 	     WHERE CI_NO = 6;     
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '정형태'	
@@ -3114,14 +3115,14 @@ Insert into PROMOTION_ORDER  values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,to_date('2
 Insert into PROMOTION_ORDER  values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,3,to_date('21/12/03 17:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/07','RR/MM/DD'),8,19);
 
 -- 결제 (12개)
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,1,to_date('21/12/02','RR/MM/DD'),28000,'카드결제','imp_293641607823');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,2,to_date('21/12/02','RR/MM/DD'),20000,'카드결제','imp_689745493446');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,3,to_date('21/12/02','RR/MM/DD'),14000,'카드결제','imp_198915841830');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,4,to_date('21/12/02','RR/MM/DD'),14000,'카드결제','imp_323161676735');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,5,to_date('21/12/02','RR/MM/DD'),10000,'카드결제','imp_431239643667');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,6,to_date('21/12/02','RR/MM/DD'),7000,'카드결제','imp_722305862240');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,7,to_date('21/12/02','RR/MM/DD'),2500,'카드결제','imp_385350926600');
-Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,8,to_date('21/12/02','RR/MM/DD'),2000,'카드결제','imp_570399709029');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,1,SYSDATE,28000,'카드결제','imp_293641607823');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,2,SYSDATE,20000,'카드결제','imp_689745493446');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,3,SYSDATE,14000,'카드결제','imp_198915841830');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,4,SYSDATE,14000,'카드결제','imp_323161676735');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,5,SYSDATE,10000,'카드결제','imp_431239643667');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,6,SYSDATE,7000,'카드결제','imp_722305862240');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,7,SYSDATE,2500,'카드결제','imp_385350926600');
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,8,SYSDATE,2000,'카드결제','imp_570399709029');
 
 -- 로고 
 
