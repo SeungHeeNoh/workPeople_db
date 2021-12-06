@@ -74,9 +74,15 @@ DROP SEQUENCE SEQ_SELF_INTR_NO;
 DROP SEQUENCE SEQ_RESUME_BROWSE_NO;
 -- 이력서 열람 번호
 DROP SEQUENCE SEQ_APPLY_INTERVIEW_NO;
--- 
+-- 면접 구분번호
 DROP SEQUENCE SEQ_APPLY_COMPANY_NO;
 -- 입사지원 구분번호
+DROP SEQUENCE SEQ_APPLIED_CAREER_NO;
+DROP SEQUENCE SEQ_APPLIED_ACTIVITY_NO;
+DROP SEQUENCE SEQ_APPLIED_LICENSE_NO;
+DROP SEQUENCE SEQ_APPLIED_LANGUAGE_NO;
+DROP SEQUENCE SEQ_APPLIED_AWARDS_NO;
+DROP SEQUENCE SEQ_APPLIED_SELFINTR_NO;
 
 -- 담당자 : 노승희
 DROP SEQUENCE SEQ_MEMBER_TYPE_NO;
@@ -153,6 +159,12 @@ CREATE SEQUENCE SEQ_APPLY_INTERVIEW_NO;
 -- 이력서 열람 번호
 CREATE SEQUENCE SEQ_APPLY_COMPANY_NO;
 -- 입사지원 구분번호
+CREATE SEQUENCE SEQ_APPLIED_CAREER_NO;
+CREATE SEQUENCE SEQ_APPLIED_ACTIVITY_NO;
+CREATE SEQUENCE SEQ_APPLIED_LICENSE_NO;
+CREATE SEQUENCE SEQ_APPLIED_LANGUAGE_NO;
+CREATE SEQUENCE SEQ_APPLIED_AWARDS_NO;
+CREATE SEQUENCE SEQ_APPLIED_SELFINTR_NO;
 
 -- 담당자 : 노승희
 CREATE SEQUENCE SEQ_MEMBER_TYPE_NO;
@@ -2722,25 +2734,6 @@ INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y','N',8);
 INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y','N',9);
 INSERT INTO RESUME VALUES (SEQ_RESUME_NO.NEXTVAL,SYSDATE,'Y','N',10);
 
--- 입사지원 (1번 공고에 6명 지원)
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,1,1);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,2,1);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,3,1);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,4,1);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,5,1);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,6,1);
-
---입사지원 ( 4번 회원이 여러 공고에 지원, 지원상태 상이)
-
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'pass',SYSDATE,DEFAULT,4,1); 
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'pass',SYSDATE,DEFAULT,4,2); 
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,3);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,4);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,5);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'passAll',SYSDATE,DEFAULT,4,6);
-INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'failure',SYSDATE,DEFAULT,4,7);
-
-
 -- 이력서 열람(입사지원 이력서 열람)
 INSERT INTO RESUME_BROWSE VALUES (SEQ_RESUME_BROWSE_NO.NEXTVAL,5,7,'application',SYSDATE);
 INSERT INTO RESUME_BROWSE VALUES (SEQ_RESUME_BROWSE_NO.NEXTVAL,6,7,'application',SYSDATE);
@@ -2765,10 +2758,7 @@ INSERT INTO RESUME_BROWSE VALUES (SEQ_RESUME_BROWSE_NO.NEXTVAL,I,7,'recommened',
 END;
 /
 
--- 면접
-INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_INTERVIEW_NO.NEXTVAL,7,7,'PASS01!!',SYSDATE,SYSDATE,DEFAULT);
-INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_INTERVIEW_NO.NEXTVAL,8,7,'PASS01!!',SYSDATE,SYSDATE,DEFAULT);
-INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_INTERVIEW_NO.NEXTVAL,9,7,'PASS01!!',SYSDATE,SYSDATE,'Y');
+
 
 -- 채팅로그 파일경로, 고객센터(개인고객)
 BEGIN
@@ -2816,7 +2806,7 @@ BEGIN
         
         INSERT INTO CAREER VALUES
         (SEQ_CAREER_NO.NEXTVAL,I,'Y','회사이름'||I,SYSDATE,SYSDATE,'사원','부서이름'||I,
-        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?'||I,'현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
         
         INSERT INTO ACTIVITY VALUES
         (SEQ_ACTIVITY_NO.NEXTVAL,I,'대외활동'||I,'기관,장소'||I,SYSDATE,SYSDATE,
@@ -3126,5 +3116,523 @@ Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,7,SYSDATE,2500,'카드결제'
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,8,SYSDATE,2000,'카드결제','imp_570399709029');
 
 -- 로고 
+
+
+-- 입사지원 (1번 공고에 6명 지원)
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,1,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다.');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,2,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,3,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,4,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,5,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'apply',SYSDATE,DEFAULT,6,1);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+--입사지원 ( 4번 회원이 여러 공고에 지원, 지원상태 상이)
+
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'pass',SYSDATE,DEFAULT,4,1); 
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'pass',SYSDATE,DEFAULT,4,2); 
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,3);
+INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_COMPANY_NO.CURRVAL,'PASS01!!',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,4);
+INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_COMPANY_NO.CURRVAL,'PASS01!!',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'interview',SYSDATE,DEFAULT,4,5);
+INSERT INTO APPLY_INTERVIEW VALUES(SEQ_APPLY_COMPANY_NO.CURRVAL,'PASS01!!',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'passAll',SYSDATE,DEFAULT,4,6);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+INSERT INTO APPLY_COMPANY VALUES (SEQ_APPLY_COMPANY_NO.NEXTVAL,'failure',SYSDATE,DEFAULT,4,7);
+INSERT INTO APPLIED_BASIC_INFO VALUES
+(SEQ_APPLY_COMPANY_NO.CURRVAL,'이력서 제목','이름','남',SYSDATE,28,'ABCDEF@DAUM.NET','01012345678',
+        '경기도 성남시 분당구','야탑동 123번지 456호',5,11);
+        
+        INSERT INTO APPLIED_EDUCATION VALUES
+        (SEQ_APPLY_COMPANY_NO.CURRVAL,'대학교 졸업 이상','학교이름','전공',SYSDATE,SYSDATE,'bachelor',
+        '대학교이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(석사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5',
+        '대학원(박사) 이름',SYSDATE,'enter',SYSDATE,'graduate','반도체학과','4.03','4.5');
+        
+        INSERT INTO APPLIED_CAREER VALUES
+        (SEQ_APPLIED_CAREER_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'Y','회사이름',SYSDATE,SYSDATE,'사원','부서이름',
+        '방황하여도, 우리 이상 교향악이다. 미묘한 갑 찾아 있다. 구하기 부패를 같지 풍부하게 아니한 산야에 내려온 생명을 칼이다. 유소년에게서 청춘이 그들의 있는 길을 석가는 원질이 이것이다. 못하다 하는 우리 사막이다. 끝에 있음으로써 그들에게 같지 위하여서. 열매를 산야에 고행을 쓸쓸한 얼음과 황금시대다. 같으며, 속잎나고, 무한한 칼이다. 실현에 피가 그들은 갑 구하지 있을 고동을 부패를 봄바람을 황금시대다. 그러므로 얼음이 놀이 위하여, 봄날의 현저하게 있는 뼈 있으랴? 되는 위하여 바로 트고, 굳세게 아름다우냐?','현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마나 것은 피다. 힘차게 우리의 노래하며 무엇을 때까지 군영과 이것이다.현저하게 이상 풀밭에 봄바람이다. 모래뿐일 안고, 얼마');
+        
+        INSERT INTO APPLIED_ACTIVITY VALUES
+        (SEQ_APPLIED_ACTIVITY_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'대외활동','기관,장소',SYSDATE,SYSDATE,
+        '. 물방아 위하여서 할지라도 주며, 끓는 칼이다. 아니더면, 피어나는 노년에게서 우리 두손을 끓는 가슴이 갑 듣는다. 위하여서 꽃이 것은 너의 고동을 아름다우냐? 소금이라 들어 두손을 봄날의 가는 군영과 아름다우냐?
+
+살았으며, 대고, 산야에 커다란 할지라도 대한 청춘의 열락의 있다. 커다란 꾸며 설산에서 가는 밥을 청춘의 천자만홍이 말이다. 하는 되는 더운지라 갑 충분히 칼이다.
+
+바이며, 소금이라 무엇을 밥을 심장은 불어 부패뿐이다. 바로 청춘에서만 인간에 꽃이 안고, 예가 소담스러운 심장은 뿐이다.');
+
+        INSERT INTO APPLIED_LICENSE VALUES
+        (SEQ_APPLIED_LICENSE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자격증명','발행처,기관','최종합격',SYSDATE);
+        
+        INSERT INTO APPLIED_LANGUAGE VALUES
+        (SEQ_APPLIED_LANGUAGE_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'언어/시험 종류','발행처','급수/점수',SYSDATE);
+        
+        INSERT INTO APPLIED_AWARDS VALUES
+        (SEQ_APPLIED_AWARDS_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'수상명','수여기관',SYSDATE);
+        
+        INSERT INTO APPLIED_SELF_INTRODUCTION VALUES
+        (SEQ_APPLIED_SELFINTR_NO.NEXTVAL,SEQ_APPLY_COMPANY_NO.CURRVAL,'자기소개서 항목 제목',
+        '. 불러 못할 없는 것이다.보라, 광야에서 이상의 반짝이는 바로 인간에 위하여서. 가는 기관과 이상의 가치를 인도하겠다는 속에서 내려온 심장의 원대하고, 있는가? 얼음 쓸쓸한 방황하였으며, 칼이다. 때까지 구하기 있으며, 예가 곳이 꽃 같이, 봄바람이다. 옷을 생의 피어나기 우리 꽃이 가치를 천자만홍이 칼이다. 인간에 투명하되 이상의 더운지라 영락과 타오르고 무엇을 과실이 있음으로써 부패뿐이다. 그들의 인간에 천고에 자신과 그리하였는가? 거친 시들어 찬미를 영원히 발휘하기 이상 아름다우냐? 피가 그들의 두기 생명을 우리 이상의 못할 것이다.
+
+우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
+
+속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+
+
 
 COMMIT;
