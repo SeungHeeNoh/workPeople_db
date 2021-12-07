@@ -2614,27 +2614,27 @@ INSERT INTO EXPERIENCE_LEVEL VALUES(SEQ_EXP_LEVEL_NO.NEXTVAL,'경력 무관');
 
 -- JOB_VACANCY / 공고
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'임상헌치과의원에서 치과위생사 선생님을 기다립니다.',SYSDATE,SYSDATE,SYSDATE,11,5,TO_DATE('2021-11-25','YYYY-MM-DD'),TO_DATE('2021-12-24','YYYY-MM-DD'),'09:00','18:30','충청북도 청주시 흥덕구 가로수로 1340-1',1,2,'보철,임플란트/교정,미용치과/소아,청소년과',1,4,'Y','따듯함과 열정을 느낄 수 있는 임상헌치과의원에 많은 지원 바랍니다.','치과위생사','연령무관',2200000,2);
+VALUES(SEQ_JV_NO.NEXTVAL,'임상헌치과의원에서 치과위생사 선생님을 기다립니다.',SYSDATE,SYSDATE,SYSDATE,11,5,TO_DATE('2021-11-25','YYYY-MM-DD'),TO_DATE('2021-12-30','YYYY-MM-DD'),'09:00','18:30','충청북도 청주시 흥덕구 가로수로 1340-1',1,2,'보철,임플란트/교정,미용치과/소아,청소년과',1,4,'Y','따듯함과 열정을 느낄 수 있는 임상헌치과의원에 많은 지원 바랍니다.','치과위생사','연령무관',2200000,2);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'기술연구소 정규직 채용(청년내일채움공제 가능)',SYSDATE,SYSDATE,SYSDATE,120,0,TO_DATE('2021-11-20','YYYY-MM-DD'),TO_DATE('2021-12-15','YYYY-MM-DD'),'09:00','17:00','대전 유성구 과학로124',1,3,'재료공학,화학공학',2,4,'Y','㈜엠지이노베이션은 태양전지 및 반도체용 실리콘 웨이퍼 제조시 발생되는 폐 실리콘 슬러시를 업싸이클링(UP-Cycling)하여 친환경적이며 가격 경쟁력 있는 전기자동차용 2차전지의 고용량 음극 첨가제를 생산하고자 노력하고 있습니다. 미래 지향적인 인재, 주도적으로 연구 및 사업을 진행할 수 있는 리더를 모집합니다.','화공기사, 산업안전기사','연령제한 : 20세 ~ 35세 ',0,7);
+VALUES(SEQ_JV_NO.NEXTVAL,'기술연구소 정규직 채용(청년내일채움공제 가능)',SYSDATE,SYSDATE,SYSDATE,120,0,TO_DATE('2021-11-20','YYYY-MM-DD'),TO_DATE('2021-12-29','YYYY-MM-DD'),'09:00','17:00','대전 유성구 과학로124',1,3,'재료공학,화학공학',2,4,'Y','㈜엠지이노베이션은 태양전지 및 반도체용 실리콘 웨이퍼 제조시 발생되는 폐 실리콘 슬러시를 업싸이클링(UP-Cycling)하여 친환경적이며 가격 경쟁력 있는 전기자동차용 2차전지의 고용량 음극 첨가제를 생산하고자 노력하고 있습니다. 미래 지향적인 인재, 주도적으로 연구 및 사업을 진행할 수 있는 리더를 모집합니다.','화공기사, 산업안전기사','연령제한 : 20세 ~ 35세 ',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'대원이노베이션(주) 무역업무 담당자 채용',SYSDATE,SYSDATE,SYSDATE,461,0,TO_DATE('2021-11-25','YYYY-MM-DD'),TO_DATE('2021-12-24','YYYY-MM-DD'),'09:00','18:00','경기 안산시 단원구 신길로1길82',1,3,'무관',3,4,'Y','당사에서 다음과 같이 유능하고 역량있는 인재를 채용합니다. 많은 관심과 지원 바랍니다.','전산회계운용사, 공인회계사','연령무관',0,7);
+VALUES(SEQ_JV_NO.NEXTVAL,'대원이노베이션(주) 무역업무 담당자 채용',SYSDATE,SYSDATE,SYSDATE,461,0,TO_DATE('2021-11-25','YYYY-MM-DD'),TO_DATE('2021-12-27','YYYY-MM-DD'),'09:00','18:00','경기 안산시 단원구 신길로1길82',1,3,'무관',3,4,'Y','당사에서 다음과 같이 유능하고 역량있는 인재를 채용합니다. 많은 관심과 지원 바랍니다.','전산회계운용사, 공인회계사','연령무관',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'PM 온라인 마케팅전략·기획 정규직 채용',SYSDATE,SYSDATE,SYSDATE,41,0,TO_DATE('2021-11-03','YYYY-MM-DD'),TO_DATE('2021-12-03','YYYY-MM-DD'),'09:30','18:30','서울 양천구 목동동로233-1',1,3,'무관',4,4,'Y','당신이 끊임없이 새로운 것을 배우고, 동료들과 협업하며, 자기 분야에서 최고가 되려는 사람인가요? 그렇다면 주저하지 말고 이력서와 포트폴리오를 보내주세요.','프레젠테이션전문가','연령무관',33000000,1);
+VALUES(SEQ_JV_NO.NEXTVAL,'PM 온라인 마케팅전략·기획 정규직 채용',SYSDATE,SYSDATE,SYSDATE,41,0,TO_DATE('2021-11-03','YYYY-MM-DD'),TO_DATE('2021-12-30','YYYY-MM-DD'),'09:30','18:30','서울 양천구 목동동로233-1',1,3,'무관',4,4,'Y','당신이 끊임없이 새로운 것을 배우고, 동료들과 협업하며, 자기 분야에서 최고가 되려는 사람인가요? 그렇다면 주저하지 말고 이력서와 포트폴리오를 보내주세요.','프레젠테이션전문가','연령무관',33000000,1);
 INSERT INTO JOB_VACANCY
 VALUES(SEQ_JV_NO.NEXTVAL,'제주 호텔더원 조리 신입/경력 채용',SYSDATE,SYSDATE,SYSDATE,80,2,TO_DATE('2021-11-30','YYYY-MM-DD'),TO_DATE('2021-12-25','YYYY-MM-DD'),'07:00','16:00','제주특별자치도 제주시 사장3길 33 (연동)',1,6,'무관',5,3,'Y','제주 호텔더원 조리 신입/경력 채용','양식조리기능사, 한식조리기능사, 일식조리기능사','연령무관',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'사무보조·문서작성 경력무관 채용합니다',SYSDATE,SYSDATE,SYSDATE,137,1,TO_DATE('2021-11-05','YYYY-MM-DD'),TO_DATE('2021-12-05','YYYY-MM-DD'),'08:00','17:00','서울 광진구 아차산로78길110',3,6,'무관',6,3,'Y','사무보조·문서작성 경력무관 채용합니다','운전면허증','연령무관',0,7);
+VALUES(SEQ_JV_NO.NEXTVAL,'사무보조·문서작성 경력무관 채용합니다',SYSDATE,SYSDATE,SYSDATE,137,1,TO_DATE('2021-11-05','YYYY-MM-DD'),TO_DATE('2021-12-29','YYYY-MM-DD'),'08:00','17:00','서울 광진구 아차산로78길110',3,6,'무관',6,3,'Y','사무보조·문서작성 경력무관 채용합니다','운전면허증','연령무관',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'[정규직] 광주 초등학교 방과후 컴퓨터 강사 채용',SYSDATE,SYSDATE,SYSDATE,13,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-12-03','YYYY-MM-DD'),'09:00','16:30','광주 광산구 남동길11-19',3,2,'컴퓨터/시스템공학',7,4,'Y','사무보조·문서작성 경력무관 채용합니다','워드프로세서, 컴퓨터활용','연령무관',0,8);
+VALUES(SEQ_JV_NO.NEXTVAL,'[정규직] 광주 초등학교 방과후 컴퓨터 강사 채용',SYSDATE,SYSDATE,SYSDATE,13,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-12-28','YYYY-MM-DD'),'09:00','16:30','광주 광산구 남동길11-19',3,2,'컴퓨터/시스템공학',7,4,'Y','사무보조·문서작성 경력무관 채용합니다','워드프로세서, 컴퓨터활용','연령무관',0,8);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'[사진DB 입력 아르바이트(재택근무)',SYSDATE,SYSDATE,SYSDATE,141,1,TO_DATE('2021-11-23','YYYY-MM-DD'),TO_DATE('2021-12-03','YYYY-MM-DD'),'01:00','24:00','서울 마포구 월드컵북로400',1,6,'무관',8,2,'Y','[사진DB 입력 아르바이트(재택근무)','GTQ그래픽기술자격','연령무관',2000,6);
+VALUES(SEQ_JV_NO.NEXTVAL,'[사진DB 입력 아르바이트(재택근무)',SYSDATE,SYSDATE,SYSDATE,141,1,TO_DATE('2021-11-23','YYYY-MM-DD'),TO_DATE('2021-12-31','YYYY-MM-DD'),'01:00','24:00','서울 마포구 월드컵북로400',1,6,'무관',8,2,'Y','[사진DB 입력 아르바이트(재택근무)','GTQ그래픽기술자격','연령무관',2000,6);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'디지털 커뮤니케이션 전문인력 채용',SYSDATE,SYSDATE,SYSDATE,113,0,TO_DATE('2021-11-24','YYYY-MM-DD'),TO_DATE('2021-12-10','YYYY-MM-DD'),'09:00','18:00','서울 중구 세종대로9길20',1,3,'무관',9,4,'Y','디지털 채널 전략 수립 및 콘텐츠 기획 능력 보유자 우대','멀티미디어콘텐츠제작전문가','연령무관',0,7);
+VALUES(SEQ_JV_NO.NEXTVAL,'디지털 커뮤니케이션 전문인력 채용',SYSDATE,SYSDATE,SYSDATE,113,0,TO_DATE('2021-11-24','YYYY-MM-DD'),TO_DATE('2021-12-28','YYYY-MM-DD'),'09:00','18:00','서울 중구 세종대로9길20',1,3,'무관',9,4,'Y','디지털 채널 전략 수립 및 콘텐츠 기획 능력 보유자 우대','멀티미디어콘텐츠제작전문가','연령무관',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'대한상공회의소 회계·세무 업무지원 모집',SYSDATE,SYSDATE,SYSDATE,122,1,TO_DATE('2021-11-18','YYYY-MM-DD'),TO_DATE('2021-11-30','YYYY-MM-DD'),'09:00','18:00','서울 중구 세종대로39',1,6,'무관',10,4,'Y','회계.세무 지원 업무, 회계/세무 업무 유경력자','공인회계사, 세무사','연령무관',5000000,2);
+VALUES(SEQ_JV_NO.NEXTVAL,'대한상공회의소 회계·세무 업무지원 모집',SYSDATE,SYSDATE,SYSDATE,122,1,TO_DATE('2021-11-18','YYYY-MM-DD'),TO_DATE('2021-12-30','YYYY-MM-DD'),'09:00','18:00','서울 중구 세종대로39',1,6,'무관',10,4,'Y','회계.세무 지원 업무, 회계/세무 업무 유경력자','공인회계사, 세무사','연령무관',5000000,2);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'[키글]에서 함께할 직원을 채용합니다.',SYSDATE,SYSDATE,SYSDATE,3805,0,TO_DATE('2021-11-16','YYYY-MM-DD'),TO_DATE('2021-12-06','YYYY-MM-DD'),'10:30','17:30','서울 서초구 방배로18길5',1,6,'무관',11,4,'Y','키글에서 함께 일하실 동료를 찾습니다. 키글은 전 세계를 대상으로 앱과 영상 콘텐츠를 서비스하는 스타트업 기업입니다.','멀티미디어콘텐츠제작전문가','연령무관',0,8);
+VALUES(SEQ_JV_NO.NEXTVAL,'[키글]에서 함께할 직원을 채용합니다.',SYSDATE,SYSDATE,SYSDATE,3805,0,TO_DATE('2021-11-16','YYYY-MM-DD'),TO_DATE('2021-12-31','YYYY-MM-DD'),'10:30','17:30','서울 서초구 방배로18길5',1,6,'무관',11,4,'Y','키글에서 함께 일하실 동료를 찾습니다. 키글은 전 세계를 대상으로 앱과 영상 콘텐츠를 서비스하는 스타트업 기업입니다.','멀티미디어콘텐츠제작전문가','연령무관',0,8);
 
 
 -- JOB_VACANCY_ROLE / 모집 직급,직책
@@ -3632,6 +3632,22 @@ INSERT INTO APPLIED_BASIC_INFO VALUES
 우는 얼음이 이 구할 타오르고 힘있다. 용기가 살았으며, 인간의 우리는 얼마나 아름다우냐? 굳세게 공자는 아름답고 넣는 때까지 영원히 가진 이것이다. 따뜻한 살 어디 철환하였는가? 가진 피어나기 그들은 이것을 약동하다. 피에 미묘한 능히 풀밭에 보내는 봄바람이다. 얼마나 미인을 것이다.보라, 철환하였는가? 물방아 우리의 그들에게 그들의 구하기 따뜻한 용감하고 거선의 같은 봄바람이다. 갑 가는 황금시대의 용감하고 우리의 가치를 사는가 봄바람을 운다. 노래하며 발휘하기 끓는 하는 있는가? 힘차게 수 끝까지 품에 이성은 동력은 것이다.보라, 이상 이것이다.
 
 속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
+
+-- 신고공고
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,1,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,2,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,3,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,4,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,5,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,6,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,7,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,8,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,9,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,10,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,11,1);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,1,2);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,2,2);
+INSERT INTO REPORT_VACANCY VALUES(SEQ_REPORT_VACANCY_NO.NEXTVAL,3,2);
 
 
 
