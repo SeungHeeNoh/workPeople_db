@@ -851,7 +851,7 @@ UPDATE COMPANY_INFO
              , A_NO = 20
 	     WHERE CI_NO = 10;         
          
--- 판매정보 (18개)
+-- 판매정보 (19개)
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,to_date('21/12/08 10:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/26','RR/MM/DD'),5,16);
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,to_date('21/12/08 11:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/26','RR/MM/DD'),1,12);
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,to_date('21/12/08 12:26:11' ,'RR/MM/DD HH24:MI:SS'),to_date('21/12/26','RR/MM/DD'),2,13);
@@ -870,8 +870,9 @@ Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,to_date('21
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,to_date('21/12/08 08:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/26','RR/MM/DD'),9,20);
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,1,to_date('21/12/08 07:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/26','RR/MM/DD'),10,21);
 Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,to_date('21/12/08 06:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/22','RR/MM/DD'),10,21);
+Insert into PROMOTION_ORDER values (SEQ_PROMOTION_ORDER_NO.NEXTVAL,2,to_date('21/12/03 06:26:11','RR/MM/DD HH24:MI:SS'),to_date('21/12/08','RR/MM/DD'),11,22);
 --
----- 결제 (18개)
+---- 결제 (19개)
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,1,SYSDATE,28000,'카드결제','imp_861016458898');
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,2,SYSDATE,28000,'카드결제','imp_529107777332');
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,3,SYSDATE,28000,'카드결제','imp_747331262829');
@@ -890,7 +891,7 @@ Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,15,SYSDATE,14000,'카드결�
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,16,SYSDATE,28000,'카드결제','imp_605181002765');
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,17,SYSDATE,28000,'카드결제','imp_909229908140');
 Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,18,SYSDATE,14000,'카드결제','imp_728256038593');
-
+Insert into PAYMENT values (SEQ_PAYMENT_NO.NEXTVAL,19,to_date('21/12/03 06:26:11','RR/MM/DD HH24:MI:SS'),5000,'카드결제','imp_019085369105');
 
 
 -- 입사지원 (1번 공고에 6명 지원)
