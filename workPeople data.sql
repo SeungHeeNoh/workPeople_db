@@ -1409,9 +1409,15 @@ INSERT INTO APPLIED_BASIC_INFO VALUES
 속잎나고, 같이, 이상을 인간은 동력은 가치를 창공에 얼마나 아니다. 크고 것은 끝까지 인도하겠다는 이것이다. 커다란 반짝이는 이상이 사랑의 설산에서 따뜻한 생명을 있으랴? 청춘 쓸쓸한 못하다 철환하였는가? 내는 동력은 소리다.이것은 우리 약동하다. 우리는 위하여서 불러 피가 약동하다. 과실이 피가 따뜻한 끝까지 그들은 찬미를 것이 말이다. 영락과 있음으로써 그들을 두기 하였으며, 이것이다. 얼음 간에 그것을 내는 위하여서 듣는다. 얼마나 생의 황금시대를 가슴이 속잎나고, 광야에서 길을 때까지 가치를 그리하였는가? 미인을 예가 든 같으며, 무엇을 온갖 사막이다.');
 
 -- 신고 공고 횟수
-신고 횟수 데이터
 BEGIN
-    FOR I IN 1..19
+    FOR I IN 1..11
+    LOOP
+INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,1);
+ END LOOP;
+END;
+/
+BEGIN
+    FOR I IN 23..30
     LOOP
 INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,1);
  END LOOP;
@@ -1419,7 +1425,14 @@ END;
 /
 
 BEGIN
-    FOR I IN 1..28
+    FOR I IN 1..11
+    LOOP
+INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,5);
+ END LOOP;
+END;
+/
+BEGIN
+    FOR I IN 23..39
     LOOP
 INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,5);
  END LOOP;
@@ -1427,7 +1440,14 @@ END;
 /
 
 BEGIN
-    FOR I IN 1..23
+    FOR I IN 1..11
+    LOOP
+INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,8);
+ END LOOP;
+END;
+/ 
+BEGIN
+    FOR I IN 23..32
     LOOP
 INSERT INTO REPORT_VACANCY VALUES (SEQ_REPORT_VACANCY_NO.NEXTVAL,I,8);
  END LOOP;
