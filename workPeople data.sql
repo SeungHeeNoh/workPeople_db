@@ -598,7 +598,7 @@ UPDATE COMPANY_INFO
 		     , CI_EMPLOYEE_NUMBER = 3	
 		     , CI_BUSINESS_DETAIL = '금속나노분말 제조'	
              , S_NO = 3
-             , A_NO = 13
+             , A_NO = 3
 	     WHERE CI_NO = 2;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '하상건'	
@@ -616,7 +616,7 @@ UPDATE COMPANY_INFO
 큰기업은 아니지만 탄탄하게 성장하고 있는 기업입니다. 대원이노베이션과 같이 성장 하실 직원분들을 모집합니다. 많은 관심 부탁드립니다.'
              , CI_HOMEPAGE = 'http://www.idaewon.com'
              , S_NO = 4
-             , A_NO = 14
+             , A_NO = 4
 	     WHERE CI_NO = 3;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '박재오'	
@@ -663,7 +663,7 @@ UPDATE COMPANY_INFO
 3. 창의적인 협업
 협업은 우리의 기본 자질이자, 우리가 제공하는 서비스입니다. 우리는 다양한 분야의 전문가가 모인 집단으로서 주어진 과제의 창의적인 해결책을 찾습니다.'
              , CI_HOMEPAGE = 'http://www.webinars.co.kr'
-              , A_NO = 15
+              , A_NO = 5
 	     WHERE CI_NO = 4;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '서정림'	
@@ -689,7 +689,7 @@ SERVICE
 MEMORISE
 더 나아가 아름답고 깨끗한 섬, 제주도에서의 낭만과 사랑, 환경과 문화가 공존하는 공간으로써, 고객님의 소중한 꿈과 희망, 추억을 키워갈 수 있기를 소망합니다.'
              , CI_HOMEPAGE = 'www.hoteltheone.com'
-              , A_NO = 12
+              , A_NO = 2
 	     WHERE CI_NO = 5;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '김석회/이재림'	
@@ -724,7 +724,7 @@ UPDATE COMPANY_INFO
 1992 03 성조주택건설(주) 설립(서울시 서초구 서초동 1339-2)'	
 		     , CI_COMPANY_VISION = '주요 사업내용 : 전문건설, 부동산 매매 및 임대, 건축자재 판매
 주요 취급품목 : 철근콘크리트공사, 비계구조물해체공사, 토공사'
-             , A_NO = 16
+             , A_NO = 6
 	     WHERE CI_NO = 6;     
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '정형태'	
@@ -761,7 +761,7 @@ UPDATE COMPANY_INFO
 
 우리는 그 어떤 기업, 벤처 보다도 여러분의 꿈을 함께 이루어줄 수 있고, 글로벌에듀아이와 동반 성장을 희망하는 사람이면 환영합니다.'
              , CI_HOMEPAGE = 'http://www.djobs.kr'
-              , A_NO = 17
+              , A_NO = 7
 	     WHERE CI_NO = 7; 
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '김지방'	
@@ -791,7 +791,7 @@ UPDATE COMPANY_INFO
 - 쿠키건강TV는 정확하고, 유익하고, 다양한 건강 생활 정보를 24시간 시청자에게 제공합니다.
 - 온 국민의 행복한 건강습관, 쿠키건강TV!'
              , CI_HOMEPAGE = 'http://www.kukinews.com'
-             , A_NO = 18
+             , A_NO = 8
 	     WHERE CI_NO = 8;
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '진옥동'	
@@ -803,7 +803,7 @@ UPDATE COMPANY_INFO
 		     , CI_COMPANY_VISION = '주요 사업내용 : 금융 서비스
 주요 취급품목 : 예금, 대출, 외환, 투자'
              , CI_HOMEPAGE = 'http://www.shinhan.com'
-             , A_NO = 19
+             , A_NO = 9
 	     WHERE CI_NO = 9;  
 UPDATE COMPANY_INFO
 		   SET CI_CEONAME = '최태원'	
@@ -822,7 +822,7 @@ UPDATE COMPANY_INFO
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 ㅇ 범세계적인 경제단체
 전세계 130여 개국에 설립돼 있는 상공회의소와 상호 긴밀한 협력체계를 갖추고 국제공증사업, 민간경제협력 위원회의 설치, 운영, 통상사절단의 파견 및 영접 등 통상진흥활동을 수행하고 있는 범세계적인 민간경제기구 입니다.'
-             , A_NO = 20
+             , A_NO = 10
 	     WHERE CI_NO = 10;         
          
 -- 판매정보 (19개)
