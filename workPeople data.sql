@@ -544,7 +544,7 @@ END;
 -- 이력서 - 기본정보, 파일첨부
 INSERT INTO ATTACHMENT
 VALUES (SEQ_ATTACHMENT_NO.NEXTVAL, 'img before '|| TO_CHAR(SYSDATE,'YYYYMMDD')||'.img', 'pikachu.png',
-'/images/personal/resume/','N',SYSDATE,SYSDATE);
+'/images/uploadFiles/','N',SYSDATE,SYSDATE);
 
 -- 이력서 관련 가데이터
 BEGIN
