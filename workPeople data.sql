@@ -383,7 +383,7 @@ VALUES(SEQ_JV_NO.NEXTVAL,'제주 호텔더원 조리 신입/경력 채용',SYSDA
 INSERT INTO JOB_VACANCY
 VALUES(SEQ_JV_NO.NEXTVAL,'사무보조·문서작성 경력무관 채용합니다',SYSDATE,SYSDATE,SYSDATE,137,1,TO_DATE('2021-11-05','YYYY-MM-DD'),TO_DATE('2021-12-29','YYYY-MM-DD'),'08:00','17:00','서울 광진구 아차산로78길110',3,6,'무관',6,3,'Y','사무보조·문서작성 경력무관 채용합니다','운전면허증','연령무관',0,7);
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'[정규직] 광주 초등학교 방과후 컴퓨터 강사 채용',SYSDATE,SYSDATE,SYSDATE,13,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-12-28','YYYY-MM-DD'),'09:00','16:30','광주 광산구 남동길11-19',3,2,'컴퓨터/시스템공학',7,4,'Y','사무보조·문서작성 경력무관 채용합니다','워드프로세서, 컴퓨터활용','연령무관',0,8);
+VALUES(SEQ_JV_NO.NEXTVAL,'[정규직] 광주 초등학교 방과후 컴퓨터 강사 채용',SYSDATE,SYSDATE,SYSDATE,153,1,TO_DATE('2021-11-22','YYYY-MM-DD'),TO_DATE('2021-12-28','YYYY-MM-DD'),'09:00','16:30','광주 광산구 남동길11-19',3,2,'컴퓨터/시스템공학',7,4,'Y','사무보조·문서작성 경력무관 채용합니다','워드프로세서, 컴퓨터활용','연령무관',0,8);
 INSERT INTO JOB_VACANCY
 VALUES(SEQ_JV_NO.NEXTVAL,'[사진DB 입력 아르바이트(재택근무)',SYSDATE,SYSDATE,SYSDATE,141,1,TO_DATE('2021-11-23','YYYY-MM-DD'),TO_DATE('2021-12-31','YYYY-MM-DD'),'01:00','24:00','서울 마포구 월드컵북로400',1,6,'무관',8,2,'Y','[사진DB 입력 아르바이트(재택근무)','GTQ그래픽기술자격','연령무관',2000,6);
 INSERT INTO JOB_VACANCY
@@ -403,7 +403,7 @@ INSERT INTO JOB_VACANCY_EXPERIENCE_LEVEL VALUES(1,12);
 INSERT INTO RECRUITMENT_INDUSTRY VALUES(9,12);
 
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'[칼퇴가능/정규직]신한은행 화상 채팅 수어/수화 상담원 채용',SYSDATE,SYSDATE,SYSDATE,DEFAULT,1,TO_DATE('2021-12-02','YYYY-MM-DD'),TO_DATE('2021-12-13','YYYY-MM-DD'),'09:00','18:00','서울시 강남구',1,1,'무관',9,4,'Y','고용형태 : 외향산업(주) 소속 정규직, 수어(수화)가능하신분 / 수어(수화)통역사 자격증 소지자 우대, 컴퓨터 기본활용 문제 없는 자, 성별/경력여부 제한없음, 신용관리 대상자 지원 불가','수어(수화)통역사','연령무관',2100000,2);
+VALUES(SEQ_JV_NO.NEXTVAL,'[칼퇴가능/정규직]신한은행 화상 채팅 수어/수화 상담원 채용',SYSDATE,SYSDATE,SYSDATE,587,1,TO_DATE('2021-12-02','YYYY-MM-DD'),TO_DATE('2021-12-13','YYYY-MM-DD'),'09:00','18:00','서울시 강남구',1,1,'무관',9,4,'Y','고용형태 : 외향산업(주) 소속 정규직, 수어(수화)가능하신분 / 수어(수화)통역사 자격증 소지자 우대, 컴퓨터 기본활용 문제 없는 자, 성별/경력여부 제한없음, 신용관리 대상자 지원 불가','수어(수화)통역사','연령무관',2100000,2);
 INSERT INTO JOB_VACANCY_ROLE VALUES(1,13);
 INSERT INTO JOB_VACANCY_JOB_TYPE VALUES(1,13);
 INSERT INTO JOB_VACANCY_EXPERIENCE_LEVEL VALUES(1,13);
@@ -424,7 +424,7 @@ INSERT INTO JOB_VACANCY_EXPERIENCE_LEVEL VALUES(3,15);
 INSERT INTO RECRUITMENT_INDUSTRY VALUES(9,15);
 
 INSERT INTO JOB_VACANCY
-VALUES(SEQ_JV_NO.NEXTVAL,'신한은행 기업자금관리(CMS)운영지원 팀원 모집',SYSDATE,SYSDATE,SYSDATE,DEFAULT,1,TO_DATE('2021-12-07','YYYY-MM-DD'),TO_DATE('2021-12-24','YYYY-MM-DD'),'08:30','18:00','서울시 중구',1,1,'무관',9,4,'Y','담당업무 : 기업고객 금융프로그램 이용지원, 기업용 금융프로그램 기술 지원(원격지원-장애조치,설치,ERP시스템 연계 등','무관','연령무관',0,8);
+VALUES(SEQ_JV_NO.NEXTVAL,'신한은행 기업자금관리(CMS)운영지원 팀원 모집',SYSDATE,SYSDATE,SYSDATE,258,1,TO_DATE('2021-12-07','YYYY-MM-DD'),TO_DATE('2021-12-24','YYYY-MM-DD'),'08:30','18:00','서울시 중구',1,1,'무관',9,4,'Y','담당업무 : 기업고객 금융프로그램 이용지원, 기업용 금융프로그램 기술 지원(원격지원-장애조치,설치,ERP시스템 연계 등','무관','연령무관',0,8);
 INSERT INTO JOB_VACANCY_ROLE VALUES(3,16);
 INSERT INTO JOB_VACANCY_JOB_TYPE VALUES(1,16);
 INSERT INTO JOB_VACANCY_EXPERIENCE_LEVEL VALUES(3,16);
